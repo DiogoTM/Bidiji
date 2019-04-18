@@ -22,8 +22,8 @@ class User
         $this->password="";        
     }
     
-    function __construct($userid, $name, $address, $city, $state, $phone, $email, $password){
-        $this->userId = $userId;
+    function __construct($name, $address, $city, $state, $phone, $email, $password){
+        $this->userId = 0;//need to define autoincremeniting function
         $this->name = $name;
         $this->address = $address;
         $this->city= $city;

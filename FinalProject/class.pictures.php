@@ -2,7 +2,6 @@
 
 class Picture
 {
- 
     private $pictureId;
     private $articleId;
     private $picture;
@@ -70,6 +69,22 @@ class Picture
     {
         $this->description = $description;
     }
+    
+    public function uploadPicture($picture)
+    {
+        $fileType=$_FILES["file"]["type"];
+        $fileSize=$_FILES["file"]["size"];
+        $fileName=$_FILES["file"]["name"];
+        $fileErr=$_FILES["file"]["error"];
+        $fileTmp=$_FILES["file"]["tmp_name"];
+        
+        if ($fileErr==0){
+            move_uploaded_file($fileTmp, "image/"+ $this->articleId + date("H:i:s"));
+            echo "The picture was uploaded successfully! <br/>";
+        }
+    }
+    
+    
     
     
 }

@@ -19,6 +19,11 @@ class Administrator extends User{
         $this->adminId = $adminId;
     }
     
+    function __construct($name, $address, $city, $state, $phone, $email, $password)
+    {
+        parent::__construct();
+        $this->adminId = 0;  //need to define autoincremeniting function
+    }
     
   
 
