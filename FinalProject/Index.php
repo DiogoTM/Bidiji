@@ -10,12 +10,14 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- Custom styles for this template -->
+    <link href="index.css" rel="stylesheet"> 
   </head>
   <body style="background-color: #7286a5">
  
   <nav class="navbar navbar-expand-md bg-dark navbar-dark">
   <!-- Brand -->
-  <a class="navbar-brand" href="#">Biridim</a>
+  <a class="navbar-brand" href="#">Bidiji</a>
 
   <!-- Toggler/collapsibe Button -->
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
@@ -26,10 +28,10 @@
   <div class="collapse navbar-collapse" id="collapsibleNavbar">
     <ul class="navbar-nav">
       <li class="nav-item">
-        <a class="nav-link" href="register.php">Register</a>
+        <a class="nav-link" href="/FinalProject/register.php">Register</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="postAnnounce.php">Post an Add</a>
+        <a class="nav-link" href="/FinalProject/postAnnounce.php">Post an Add</a>
       </li>    
       <li class="nav-item">
         <a class="nav-link" href="#">French</a>
@@ -40,7 +42,11 @@
     </ul>
   </div> 
 </nav>
+
+
 <div><br/></div>
+<div class="index-Announces">
+
 <!-- Paid Announces -->
 <div class="card-deck">
 <div class="card" style="width:400px">
@@ -80,27 +86,36 @@
 </div>
 
  <a  href=""> <font color="#edf2f1"> Click here to see more items</font></a>
- <div>
- <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+ </div> <!-- end of payed Announces content -->
 
-  <form class="form-inline" action="/action_page.php">
-    <input class="form-control mr-sm-2" type="text" placeholder="Search">
-    <button class="btn btn-secondary" type="submit">Search</button>       
-  </form>
-  &nbsp &nbsp
-<div>
-      <select class="form-control">
-                    <option selected=""> Search For:</option>
-                    <option>Product</option>
-                    <option>Category</option>
-                    <option>Sub-Category</option>
-                </select>
-    </div>
-</nav>
- 
+
+<div class="searchNavBar" >
+  <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+
+    <div>
+        <select class="form-control">
+          <option selected=""> Search For:</option>
+          <option>Product</option>
+          <option>Category</option>
+          <option>Sub-Category</option>
+        </select>
+      </div>
+    &nbsp &nbsp
+    <form class="form-inline" action="/action_page.php">
+      <input class="form-control mr-sm-2" type="text" placeholder="Search">
+      <button class="btn btn-info btn-sm" type="submit">Search</button>
+      &nbsp
+      <button class="btn btn-light btn-sm" type="reset">Reset</button>     
+      </form>
+
+    
+  </nav>
 </div>
+
 <br/>
 
+
+<div class="index-Announces">
 <!-- Free Announces -->
 <div class="card-deck">
 <div class="card" style="width:400px">
@@ -138,8 +153,10 @@
 </div>
 <br/>
 </div>
-
+</div> <!-- end of free Announces content -->
       
+
+
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

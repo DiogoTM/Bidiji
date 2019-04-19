@@ -11,34 +11,61 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <!-- Custom styles for this template -->
-  <link href="signin.css" rel="stylesheet">  
+    <!-- Custom styles for this template -->
+    <link href="login.css" rel="stylesheet">  
 </head>
   <body style="background-color: #7286a5">
 
-       <div class="container">   
+      <!-- NavBar -->
+      <nav class="navbar navbar-expand-md bg-dark navbar-dark">
+        <!-- Brand -->
+        <a class="navbar-brand" href="/FinalProject/index.php">Bidiji</a>
+      
+        <!-- Toggler/collapsibe Button -->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <!-- Navbar links -->
+        <div class="collapse navbar-collapse" id="collapsibleNavbar">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="/FinalProject/register.php">Register</a>
+            </li>   
+            <li class="nav-item">
+              <a class="nav-link" href="#">French</a>
+            </li> 
+            <li class="nav-item">
+              <a class="nav-link" href="#">English</a>
+            </li> 
+          </ul>
+        </div> 
+      </nav>
 
-		<div class="card bg-light">
+
+     <div class="container">   
+
+		  <div class="card bg-light">
         <article class="card-body mx-auto" >
           
            
-          <form class="form-signin">
+           <form class="form-signin">
             <h2 class="form-signin-heading">Please sign in</h2>
             <label for="inputEmail" class="sr-only">Email address</label>
-            <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+              <input type="email" name="inputEmail" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
             <label for="inputPassword" class="sr-only">Password</label>
-            <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+              <input type="password" name="inputPass" id="inputPass" class="form-control" placeholder="Password" required>
             <div class="checkbox">
               <label>
                 <input type="checkbox" value="remember-me"> Remember me
               </label>
             </div>
-            <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
-          </form>
+            <button class="btn btn-lg btn-primary btn-block" type="submit" name="btnSubmit" id="btnSubmit">Sign in</button>
+           </form>
           
-            <p class="text-center">Don't have an account? <a href="register.php">Register here!</a> </p> 
-    
-        </div> <!-- /container -->
+          <p class="text-center">Don't have an account? <a href="register.php">Register here!</a> </p> 
+       </div>
+     </div> <!-- /container -->
     
     
         <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->

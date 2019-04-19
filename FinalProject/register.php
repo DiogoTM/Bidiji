@@ -6,10 +6,41 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <!-- Bootstrap CSS -->
+   
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  </head>
+    <!-- Custom styles for this template -->
+    <link href="register.css" rel="stylesheet">
+
+</head>
   <body style="background-color: #7286a5">
+
+      <!-- NavBar -->
+      <nav class="navbar navbar-expand-md bg-dark navbar-dark">
+        <!-- Brand -->
+        <a class="navbar-brand" href="/FinalProject/index.php">Bidiji</a>
+      
+        <!-- Toggler/collapsibe Button -->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <!-- Navbar links -->
+        <div class="collapse navbar-collapse" id="collapsibleNavbar">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="/FinalProject/register.php">Register</a>
+            </li>   
+            <li class="nav-item">
+              <a class="nav-link" href="#">French</a>
+            </li> 
+            <li class="nav-item">
+              <a class="nav-link" href="#">English</a>
+            </li> 
+          </ul>
+        </div> 
+      </nav>
 
     <div class="container">   
 
@@ -23,31 +54,31 @@
                 <div class="input-group-prepend">
                     <span class="input-group-text"> <i class="fa fa-user"></i> </span>
                  </div>
-                <input name="" class="form-control" placeholder="Full name" type="text">
+                <input name="userName" id="userName"class="form-control" placeholder="Full name" type="text">
             </div> <!-- form-group// -->
             <div class="form-group input-group">
                 <div class="input-group-prepend">
                     <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
                  </div>
-                <input name="" class="form-control" placeholder="Email address" type="email">
+                <input name="userEmail" id="userEmail"class="form-control" placeholder="Email address" type="email">
             </div> <!-- form-group// -->
             <div class="form-group input-group">
                 <div class="input-group-prepend">
                     <span class="input-group-text"> <i class="fa fa-phone"></i> </span>
                 </div>
-                <select class="custom-select" style="max-width: 120px;">
+                <select class="custom-select" style="max-width: 120px;" name="phonePrefix" id="phonePrefix">
                     <option selected="">+971</option>
                     <option value="1">+972</option>
                     <option value="2">+198</option>
                     <option value="3">+701</option>
                 </select>
-                <input name="" class="form-control" placeholder="Phone number" type="text">
+                <input name="userPhone" id="userPhone"class="form-control" placeholder="Phone number" type="text">
             </div> <!-- form-group// -->
             <div class="form-group input-group">
                 <div class="input-group-prepend">
                     <span class="input-group-text"> <i class="fa fa-building"></i> </span>
                 </div>
-                <select class="form-control">
+                <select class="form-control" name="jobType" id="jobType">
                     <option selected=""> Select job type</option>
                     <option>Designer</option>
                     <option>Manager</option>
@@ -58,16 +89,16 @@
                 <div class="input-group-prepend">
                     <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
                 </div>
-                <input class="form-control" placeholder="Create password" type="password">
+                <input class="form-control" placeholder="Create password" type="password" name="userPass" id="userPass">
             </div> <!-- form-group// -->
             <div class="form-group input-group">
                 <div class="input-group-prepend">
                     <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
                 </div>
-                <input class="form-control" placeholder="Repeat password" type="password">
+                <input class="form-control" placeholder="Repeat password" type="password" name="userPassRep" id="userPassRep">
             </div> <!-- form-group// -->                                      
             <div class="form-group">
-                <button type="submit" class="btn btn-primary btn-block"> Create Account  </button>
+                <button type="submit" class="btn btn-primary btn-block" name="btnSubmit" id="btnSubmit"> Create Account</button>
             </div> <!-- form-group// -->      
             <p class="text-center">Have an account? <a href="login.php">Log In</a> </p>                                                                 
         </form>
