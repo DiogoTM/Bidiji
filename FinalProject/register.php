@@ -49,7 +49,7 @@
             <h4 class="card-title mt-3 text-center">Create Account</h4>
             <p class="text-center">Get started with your free account</p>
            
-            <form>
+            <form method="post" action="register_post.php" >
             <div class="form-group input-group">
                 <div class="input-group-prepend">
                     <span class="input-group-text"> <i class="fa fa-user"></i> </span>
@@ -64,25 +64,40 @@
             </div> <!-- form-group// -->
             <div class="form-group input-group">
                 <div class="input-group-prepend">
+                    <span class="input-group-text"> <i class="fa fa-building"></i> </span>
+                </div>          
+                 <input name="userAddress" id="userAddress"class="form-control" placeholder="Address" type="text">
+            </div> <!-- form-group// -->
+
+            <div class="form-group input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"> <i class="fa fa-city"></i> </span>
+                </div>          
+                 <input name="userCity" id="userCity"class="form-control" placeholder="City" type="text">
+            </div> <!-- form-group// -->
+
+            <div class="form-group input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"> <i class="fa fa-map-marked-alt"></i> </span>
+                </div>          
+                 <input name="userState" id="userState"class="form-control" placeholder="State" type="text">
+            </div> <!-- form-group// -->
+
+            <div class="form-group input-group">
+                <div class="input-group-prepend">
                     <span class="input-group-text"> <i class="fa fa-phone"></i> </span>
                 </div>
-                <select class="custom-select" style="max-width: 120px;" name="phonePrefix" id="phonePrefix">
-                    <option selected="">+971</option>
-                    <option value="1">+972</option>
-                    <option value="2">+198</option>
-                    <option value="3">+701</option>
-                </select>
-                <input name="userPhone" id="userPhone"class="form-control" placeholder="Phone number" type="text">
+                 <input name="userPhone" id="userPhone"class="form-control" placeholder="Phone number" type="text">
             </div> <!-- form-group// -->
             <div class="form-group input-group">
                 <div class="input-group-prepend">
-                    <span class="input-group-text"> <i class="fa fa-building"></i> </span>
+                    <span class="input-group-text"> <i class="fa fa-briefcase"></i> </span>
                 </div>
-                <select class="form-control" name="jobType" id="jobType">
-                    <option selected=""> Select job type</option>
-                    <option>Designer</option>
-                    <option>Manager</option>
-                    <option>Accaunting</option>
+                <select class="form-control" name="userType" id="userType">
+                    <option selected=""> Select user type</option>
+                    <option>Administrator</option>
+                    <option>Employee</option>
+                    <option>Member</option>
                 </select>
             </div> <!-- form-group end.// -->
             <div class="form-group input-group">

@@ -1,51 +1,87 @@
 <?php
 include_once 'dbConfig.php';
-include_once 'class.user.php';
-include_once 'class.administrator.php';
-include_once 'class.member.php';
-include_once 'class.employee.php';
 
-if ( isset( $_POST['submit'] ) ) {
-    // $userId set automatically by class
-    $name = $_REQUEST['name'];
-    $address = $_REQUEST['address'];
-    $city = $_REQUEST['city'];
-    $state = $_REQUEST['state'];
-    $phone = $_REQUEST['phone'];
-    $email = $_REQUEST['email'];
-    $password = $_REQUEST['pswd'];
-    $type = $_REQUEST['type']; 
-    
-    switch ($type)
+session_start();
+
+// initializing variables
+$username = "";
+$email    = "";
+$errors = array(); 
+
+// connect to the database
+$db = $connectionId;
+
+// REGISTER USER
+if (isset($_POST['btnSubmit'])) {
+  // receive all input values from the form
+  $username = mysqli_real_escape_string($db, $_POST['userName']);
+  $email = mysqli_real_escape_string($db, $_POST['userEmail']);
+  $address = mysqli_real_escape_string($db, $_POST['userAddress']);
+  $city = mysqli_real_escape_string($db, $_POST['userCity']);
+  $state = mysqli_real_escape_string($db, $_POST['userState']);
+  $phone = mysqli_real_escape_string($db, $_POST['userPhone']);
+  $usertype = mysqli_real_escape_string($db, $_POST['userType']);
+  $password_1 = mysqli_real_escape_string($db, $_POST['userPass']);
+  $password_2 = mysqli_real_escape_string($db, $_POST['userPassRep']);
+
+  // form validation: ensure that the form is correctly filled ...
+  // by adding (array_push()) corresponding error unto $errors array
+  if (empty($username)) { array_push($errors, "Name is required"); }
+  if (empty($email)) { array_push($errors, "Email is required"); }
+  if (empty($address)) { array_push($errors, "Address is required"); }
+  if (empty($city)) { array_push($errors, "City is required"); }
+  if (empty($state)) { array_push($errors, "State is required"); }
+  if (empty($phone)) { array_push($errors, "Phone is required"); }
+  if (empty($usertype)) { array_push($errors, "User type is required"); }
+  if (empty($password_1)) { array_push($errors, "Password is required"); }
+  if ($password_1 != $password_2) {
+	array_push($errors, "The two passwords do not match");
+  }
+
+  // first check the database to make sure 
+  // a user does not already exist with the same username and/or email
+  $user_check_query = "SELECT * FROM user WHERE email='$email' LIMIT 1";
+  $result = mysqli_query($db, $user_check_query);
+  $user = mysqli_fetch_assoc($result);
+  
+  if ($user) { // if user exists
+    if ($user['username'] === $username) {
+      array_push($errors, "Username already exists");
+    }
+
+    if ($user['email'] === $email) {
+      array_push($errors, "email already exists");
+    }
+  }
+
+  // Finally, register user if there are no errors in the form
+  if (count($errors) == 0) {
+  	$password = md5($password_1);//encrypt the password before saving in the database
+
+  	$query = "INSERT INTO user (name, address, city, state, phone, email, password) 
+  			  VALUES('$username', '$address', '$city', '$state', '$phone' ,'$email', '$password')";
+      mysqli_query($db, $query);
+
+    switch($usertype)  
     {
-        case "admin":
-            $newUser = new Administrator($name, $address, $city, $state, $phone, $email, $password);
-            break;
-        case "emp":
-            $newUser = new Employee($name, $address, $city, $state, $phone, $email, $password);
-            break;
-        case "member":
-            $newUser = new Member($name, $address, $city, $state, $phone, $email, $password);
-            break;               
-    }
-    
-    try {
-        $connection = new PDO("mysql:host=$hostname;dbname=$dbname",$username,$password,[]);
-        echo "You are connected to $dbname database <br>";
-        $isInserted = $newUser->create($connection);
-        if ($isInserted) {
-            echo "<br>User registered successfully!<br>";
-        }
-        else {
-            $arrError = $connection->errorInfo();
-            echo "<br>Error code: " . $arrError[0] . " </br>";
-            echo "<br>Driver error code: " . $arrError[1] . " </br>";
-            echo "<br>Error message: " . $arrError[2] . " </br>";
-        }
-    }
-    catch (SQLException $exception) {
-        echo "Error </br>";
-    }
+        case "Administrator":
+            $query = "INSERT INTO administrator DEFAULT VALUES";
+            mysqli_query($db, $query);
+        break;
+        case "Employee":
+            $query = "INSERT INTO employee DEFAULT VALUES";
+            mysqli_query($db, $query);  
+        break;
+        case "Member":
+            $query = "INSERT INTO member DEFAULT VALUES";
+            mysqli_query($db, $query);
+        break;          
+    }  
+    echo "Success";
+    // $_SESSION['userLogged'] = $email;
+    // $_SESSION['success'] = "You are now logged in";
+    // header('location: index.php');   
+}
 }
 
-https://codewithawa.com/posts/complete-user-registration-system-using-php-and-mysql-database
+
