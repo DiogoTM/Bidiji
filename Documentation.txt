@@ -1,0 +1,21 @@
+
+
+
+[INPUTS] Register Page
+
+<input name="userName" id="userName" class="form-control" placeholder="Full name" type="text">
+<input name="userEmail" id="userEmail" class="form-control" placeholder="Email address" type="email">
+<select class="custom-select" style="max-width: 120px;" name="phonePrefix" id="phonePrefix">
+<input name="userPhone" id="userPhone" class="form-control" placeholder="Phone number" type="text">
+<select class="form-control" name="jobType" id="jobType">
+<input class="form-control" placeholder="Create password" type="password" name="userPass" id="userPass">
+<input class="form-control" placeholder="Repeat password" type="password" name="userPassRep" id="userPassRep">
+<button type="submit" class="btn btn-primary btn-block" name="btnSubmit" id="btnSubmit"> Create Account</button>
+
+
+[INPUTS] LogIn Page
+<input type="email" name="inputEmail" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+<input type="password" name="inputPass" id="inputPass" class="form-control" placeholder="Password" required>
+<button class="btn btn-lg btn-primary btn-block" type="submit" name="btnSubmit" id="btnSubmit">Sign in</button>
+
+
