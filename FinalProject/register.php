@@ -19,7 +19,7 @@
       <!-- NavBar -->
       <nav class="navbar navbar-expand-md bg-dark navbar-dark">
         <!-- Brand -->
-        <a class="navbar-brand" href="/FinalProject/index.php">Bidiji</a>
+        <a class="navbar-brand" href="/Bidiji/FinalProject/index.php">Bidiji</a>
       
         <!-- Toggler/collapsibe Button -->
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
@@ -30,7 +30,7 @@
         <div class="collapse navbar-collapse" id="collapsibleNavbar">
           <ul class="navbar-nav">
             <li class="nav-item">
-              <a class="nav-link" href="/FinalProject/register.php">Register</a>
+              <a class="nav-link" href="/Bidiji/FinalProject/register.php">Register</a>
             </li>   
             <li class="nav-item">
               <a class="nav-link" href="#">French</a>
@@ -78,11 +78,11 @@
                 <div class="input-group-prepend">
                     <span class="input-group-text"> <i class="fa fa-building"></i> </span>
                 </div>
-                <select class="form-control" name="jobType" id="jobType">
-                    <option selected=""> Select job type</option>
-                    <option>Designer</option>
-                    <option>Manager</option>
-                    <option>Accaunting</option>
+                <select class="form-control" name="accType" id="accType">
+                    <option selected=""> Select Account Type</option>
+                    <option>Member</option>
+                    <option>Employee</option>
+                    <option>Administrator</option>
                 </select>
             </div> <!-- form-group end.// -->
             <div class="form-group input-group">

@@ -7,7 +7,7 @@
 <input name="userEmail" id="userEmail" class="form-control" placeholder="Email address" type="email">
 <select class="custom-select" style="max-width: 120px;" name="phonePrefix" id="phonePrefix">
 <input name="userPhone" id="userPhone" class="form-control" placeholder="Phone number" type="text">
-<select class="form-control" name="jobType" id="jobType">
+<select class="form-control" name="accType" id="accType">
 <input class="form-control" placeholder="Create password" type="password" name="userPass" id="userPass">
 <input class="form-control" placeholder="Repeat password" type="password" name="userPassRep" id="userPassRep">
 <button type="submit" class="btn btn-primary btn-block" name="btnSubmit" id="btnSubmit"> Create Account</button>

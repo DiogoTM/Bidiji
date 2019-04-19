@@ -17,7 +17,7 @@
  
         <nav class="navbar navbar-expand-md bg-dark navbar-dark">
         <!-- Brand -->
-        <a class="navbar-brand" href="/FinalProject/index.php">Bidiji</a>
+        <a class="navbar-brand" href="/Bidiji/FinalProject/index.php">Bidiji</a>
       
         <!-- Toggler/collapsibe Button -->
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
@@ -28,10 +28,10 @@
         <div class="collapse navbar-collapse" id="collapsibleNavbar">
           <ul class="navbar-nav">
             <li class="nav-item">
-              <a class="nav-link" href="/FinalProject/register.php">Register</a>
+              <a class="nav-link" href="/Bidiji/FinalProject/register.php">Register</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/FinalProject/postAnnounce.php">Post an Add</a>
+              <a class="nav-link" href="/Bidiji/FinalProject/postAnnounce.php">Post an Add</a>
             </li>    
             <li class="nav-item">
               <a class="nav-link" href="#">French</a>
