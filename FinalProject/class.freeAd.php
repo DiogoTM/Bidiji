@@ -3,6 +3,12 @@
 class FreeAd extends Ad
 {
     private $freeAdId;
+    
+    function __construct($userId, $subcategoryId){
+        
+        parent::__construct($userId, $subcategoryId);
+    }
+    
     /**
      * @return mixed
      */

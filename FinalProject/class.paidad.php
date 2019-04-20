@@ -2,10 +2,17 @@
 
 class PaidAd extends Ad{
     private $paidAdId;
-    private $rate;
     private $imageQuantity;
     private $totalCost;
     
+    function __construct($userId, $subcategoryId, $totalCost, $imageQuantity){
+        
+        parent::__construct($userId, $subcategoryId);
+        $this->rate = $rate;
+        $this->imageQuantity = $imageQuantiy;
+        $this->totalCost = $totalCost;
+      
+    }
     
     
     /**

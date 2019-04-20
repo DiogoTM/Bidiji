@@ -9,12 +9,13 @@ class Article
    private $description;
    private $name;
    
-   function __construct($price, $quantity, $description, $){
+   function __construct($price, $quantity, $description, $name){
        
        $this->userId = $userId;
        $this->subcategoryId = $subcategoryId;
        $this->startDate = date('Y-m-d');
        $this->endDate = date('Y-m-d') + 30;
+       $this->name = $name;
        
    }   
    
