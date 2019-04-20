@@ -1,44 +1,52 @@
 <?php
 include_once 'dbConfig.php';
-
+include_once 'class.user.php';
 
 session_start();
 
-// initializing variables
-$username = "";
-$email    = "";
-$errors = array(); 
-
-// connect to the database
-$db = $connectionId;
-
-// LOGIN USER
 if (isset($_POST['btnSubmit'])) {
-    $username = mysqli_real_escape_string($db, $_POST['inputEmail']);
-    $password = mysqli_real_escape_string($db, $_POST['inputPass']);
+    
+    
+    $email = $_POST['inputEmail'];
+    $password = $_POST['inputPass'];
+
+
+    // form validation: ensure that the form is correctly filled ...
+    // by adding (array_push()) corresponding error unto $errors array
   
-    if (empty($username)) {
-        array_push($errors, "E-mail is required");
+    if (empty($email)) {
+        echo "Email is required";
+        return;
     }
+    
     if (empty($password)) {
-        array_push($errors, "Password is required");
+        echo "Password is required";
+        return;
     }
-  
-    if (count($errors) == 0) {
+    
+    try
+    {
         $password = md5($password);
-        $query = "SELECT * FROM user WHERE email='$username' AND password='$password'";
-        $results = mysqli_query($db, $query);
-        if (mysqli_num_rows($results) == 1) {
-          $_SESSION['userLogged'] = $username;
-          $_SESSION['success'] = "You are now logged in";
-          header('location: index.php');
-        }else {
-            array_push($errors, "Wrong username/password combination");
+        $stmt = $connectionId->prepare("SELECT * FROM user WHERE email=:email and password=:password LIMIT 1");
+        $stmt->execute(array(':email'=>$email, ':password'=>$password));
+        $found=$stmt->fetch(PDO::FETCH_ASSOC);
+        
+        if($stmt->rowCount() > 0)
+        {
+            $_SESSION['userLogged'] = $found['email'];
+            $_SESSION['success'] = "You are now logged in";
+            header('location: index.php');    
+            return true;
         }
+        echo "not nice job dude";
     }
-    else{
-        echo "Eita";
+    catch(PDOException $e)
+    {
+        echo $e->getMessage();
     }
-  }
-  
-  ?>
+    
+    
+    
+    
+}
+

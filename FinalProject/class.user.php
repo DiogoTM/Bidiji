@@ -169,7 +169,7 @@ class User
            $stmt->bindparam(":state", $this->state);
            $stmt->bindparam(":phone", $this->phone);
            $stmt->bindparam(":email", $this->email);
-           $stmt->bindparam(":password", $this->password);               
+           $stmt->bindparam(":password", md5($this->password));               
            $stmt->execute(); 
    
            return $stmt; 
@@ -179,33 +179,6 @@ class User
            echo $e->getMessage();
        }    
     }
-
-    public function login($email,$password)
-    {
-       try
-       {
-          $password = md5($password);
-          $stmt = $this->db->prepare("SELECT * FROM user WHERE email=:email and password=:password LIMIT 1");
-          $stmt->execute(array(':email'=>$email, ':password'=>$password));
-          $found=$stmt->fetch(PDO::FETCH_ASSOC);
-
-          if($stmt->rowCount() > 0)
-          {
-            $_SESSION['loggedUser'] = $found['email']; 
-
-            return true;            
-          }
-       }
-       catch(PDOException $e)
-       {
-           echo $e->getMessage();
-       }
-   }
-
- 
-
-
-
     
 }
 
