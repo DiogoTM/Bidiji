@@ -1,0 +1,11 @@
+img	{
+	width: 30%;
+	float: left;
+    margin: 1.66%;
+}
+
+#teste{
+  width: 100%;
+  display: flex;
+  justify-content: center ;
+}
