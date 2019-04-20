@@ -16,31 +16,40 @@
 </head>
   <body style="background-color: #7286a5">
 
-      <!-- NavBar -->
-      <nav class="navbar navbar-expand-md bg-dark navbar-dark">
-        <!-- Brand -->
-        <a class="navbar-brand" href="/Bidiji/FinalProject/index.php">Bidiji</a>
-      
-        <!-- Toggler/collapsibe Button -->
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-      
-        <!-- Navbar links -->
-        <div class="collapse navbar-collapse" id="collapsibleNavbar">
-          <ul class="navbar-nav">
-            <li class="nav-item">
-              <a class="nav-link" href="/Bidiji/FinalProject/register.php">Register</a>
-            </li>   
-            <li class="nav-item">
-              <a class="nav-link" href="#">French</a>
-            </li> 
-            <li class="nav-item">
-              <a class="nav-link" href="#">English</a>
-            </li> 
-          </ul>
-        </div> 
-      </nav>
+
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-md bg-dark navbar-dark">
+  <!-- Brand -->
+  <a class="navbar-brand" href="/Bidiji/FinalProject/index.php">Home</a>
+
+  <!-- Toggler/collapsibe Button -->
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <!-- Navbar links -->
+  <div class="collapse navbar-collapse" id="collapsibleNavbar">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="/Bidiji/FinalProject/login.php">Login</a>
+      </li>   
+    </ul>
+  </div>
+  <a class="navbar-brand mx-auto" href="/Bidiji/FinalProject/index.php">Bidiji</a>
+    <div class="navbar-collapse collapse">
+        <ul class="nav navbar-nav ml-auto">
+            <li class="nav-item dropdown dmenu">
+            <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+              Language
+            </a>
+            <div class="dropdown-menu sm-menu">
+              <a class="dropdown-item" href="#">English</a>
+              <a class="dropdown-item" href="#">French</a>
+            </div>
+          </li>
+        </ul>
+    </div>
+</nav>
 
     <div class="container">   
 
@@ -49,7 +58,7 @@
             <h4 class="card-title mt-3 text-center">Create Account</h4>
             <p class="text-center">Get started with your free account</p>
            
-            <form>
+            <form method="post" action="register_post.php" >
             <div class="form-group input-group">
                 <div class="input-group-prepend">
                     <span class="input-group-text"> <i class="fa fa-user"></i> </span>
@@ -64,25 +73,40 @@
             </div> <!-- form-group// -->
             <div class="form-group input-group">
                 <div class="input-group-prepend">
+                    <span class="input-group-text"> <i class="fa fa-building"></i> </span>
+                </div>          
+                 <input name="userAddress" id="userAddress"class="form-control" placeholder="Address" type="text">
+            </div> <!-- form-group// -->
+
+            <div class="form-group input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"> <i class="fa fa-city"></i> </span>
+                </div>          
+                 <input name="userCity" id="userCity"class="form-control" placeholder="City" type="text">
+            </div> <!-- form-group// -->
+
+            <div class="form-group input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"> <i class="fa fa-map-marked-alt"></i> </span>
+                </div>          
+                 <input name="userState" id="userState"class="form-control" placeholder="State" type="text">
+            </div> <!-- form-group// -->
+
+            <div class="form-group input-group">
+                <div class="input-group-prepend">
                     <span class="input-group-text"> <i class="fa fa-phone"></i> </span>
                 </div>
-                <select class="custom-select" style="max-width: 120px;" name="phonePrefix" id="phonePrefix">
-                    <option selected="">+971</option>
-                    <option value="1">+972</option>
-                    <option value="2">+198</option>
-                    <option value="3">+701</option>
-                </select>
-                <input name="userPhone" id="userPhone"class="form-control" placeholder="Phone number" type="text">
+                 <input name="userPhone" id="userPhone"class="form-control" placeholder="Phone number" type="text">
             </div> <!-- form-group// -->
             <div class="form-group input-group">
                 <div class="input-group-prepend">
-                    <span class="input-group-text"> <i class="fa fa-building"></i> </span>
+                    <span class="input-group-text"> <i class="fa fa-briefcase"></i> </span>
                 </div>
-                <select class="form-control" name="accType" id="accType">
-                    <option selected=""> Select Account Type</option>
-                    <option>Member</option>
-                    <option>Employee</option>
+                <select class="form-control" name="userType" id="userType">
+                    <option selected=""> Select user type</option>
                     <option>Administrator</option>
+                    <option>Employee</option>
+                    <option>Member</option>
                 </select>
             </div> <!-- form-group end.// -->
             <div class="form-group input-group">

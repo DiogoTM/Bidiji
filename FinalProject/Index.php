@@ -15,6 +15,8 @@
   </head>
   <body style="background-color: #7286a5">
  
+
+  <!-- NAVBAR -->
   <nav class="navbar navbar-expand-md bg-dark navbar-dark">
   <!-- Brand -->
   <a class="navbar-brand" href="#">Home</a>
