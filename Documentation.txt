@@ -7,7 +7,7 @@
 <input name="userEmail" id="userEmail" class="form-control" placeholder="Email address" type="email">
 <select class="custom-select" style="max-width: 120px;" name="phonePrefix" id="phonePrefix">
 <input name="userPhone" id="userPhone" class="form-control" placeholder="Phone number" type="text">
-<select class="form-control" name="accType" id="accType">
+<select class="form-control" name="jobType" id="jobType">
 <input class="form-control" placeholder="Create password" type="password" name="userPass" id="userPass">
 <input class="form-control" placeholder="Repeat password" type="password" name="userPassRep" id="userPassRep">
 <button type="submit" class="btn btn-primary btn-block" name="btnSubmit" id="btnSubmit"> Create Account</button>
@@ -18,7 +18,16 @@
 <input type="password" name="inputPass" id="inputPass" class="form-control" placeholder="Password" required>
 <button class="btn btn-lg btn-primary btn-block" type="submit" name="btnSubmit" id="btnSubmit">Sign in</button>
 
-[INPUTS] postAnnounce Page
 
-<form name="formPictures" id="formPictures">
+[INPUTS] postAnnounce Page
+<input name="adTitle" id="adTitle" class="form-control" placeholder="Title/Name of the article" type="text"><select class="form-control" name="adCategory" id="adCategory">
+<select class="form-control" name="adSubcategory" id="adSubcategory">
+<input name="adPrice" id="adPrice" class="form-control" placeholder="Price" type="number">
+<input name="adQuantity" id="adQuantity" class="form-control" placeholder="Quantity" type="number">
+<input name="adDescription" id="adDescription" class="form-control" placeholder="Description" type="text">
+<input type="text" class="form-control datetimepicker-input" id="datetimepicker5" name="datetimepicker5" data-toggle="datetimepicker" data-target="#datetimepicker5" placeholder="Select Ad date limit"/>
+
+<button id=btnSubmitAdPhoto name=btnSubmitAdPhoto class="btn btn-secondary">Add Photos</button>&nbsp
+<button id="btnSubmitAdAnnounce" name="btnSubmitAdAnnounce" class="btn btn-primary">Submit Announce</button>
+
 
