@@ -118,6 +118,27 @@
             </div> <!-- form-group end.// -->
 
 
+            <fieldset class="form-group">
+                <div class="row">
+                  <legend class="col-form-label col-sm-2 pt-0"></legend>
+                  <div class="col-sm-10">
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
+                      <label class="form-check-label" for="gridRadios1">
+                        Payed Ad
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">
+                      <label class="form-check-label" for="gridRadios2">                        
+                        Free Ad (10 days expiration)
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </fieldset><!-- form-group end.// -->   
+
+
             <br><br>
             <div id="teste">
               <button id=btnSubmitAdPhoto name=btnSubmitAdPhoto class="btn btn-secondary">Add Photos</button>&nbsp
