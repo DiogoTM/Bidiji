@@ -1,22 +1,23 @@
 <?php
 include_once 'dbConfig.php';
-include_once 'class.user.php';
-include_once 'class.administrator.php';
-include_once 'class.employee.php';
-include_once 'class.member.php';
-
-
+include_once 'class.ad.php';
+include_once 'class.freeAd.php';
+include_once 'class.paidad.php';
 
 session_start();
 
-if (isset($_POST['btnSubmit'])) {
+if (isset($_POST['btnSubmitAdAnnounce'])) {
     
-    
-    $name = $_POST['adName'];
-    $subcategory = $_POST['subcategory'];
-    $price = $_POST['price'];
-    $quantity = $_POST['quantity'];
-    $desc = $_POST['desc'];
+    $_SESSION['userLogged']= 1;
+   
+    $name = $_POST['adTitle'];
+    $subcategory = $_POST['adSubcategory'];
+    $price = $_POST['adPrice'];
+    $quantity = $_POST['adQuantity'];
+    $desc = $_POST['adDescription'];
+    $dateEnd = $_POST['datetimepicker5'];
+    $maxPic = 1;
+    $cost = 5;
     
         // form validation: ensure that the form is correctly filled ...
     // by adding (array_push()) corresponding error unto $errors array
@@ -40,34 +41,34 @@ if (isset($_POST['btnSubmit'])) {
         echo "Description is required";
         return;
     }
-    
-    switch($usertype)
-    {
-    case "Administrator":
-        $myUser = new Administrator($name, $address, $city, $state, $phone, $email, $password_1);
-        $myUser->register($connectionId);
-        $myUser->registerAdm($connectionId, $myUser);
-        
-    echo "Admin";
-    break;
-    case "Employee":
-        $myUser = new Employee($name, $address, $city, $state, $phone, $email, $password_1);
-        $myUser->register($connectionId);
-        $myUser->registerEmp($connectionId, $myUser);
-        
-    echo "Emp";
-    break;
-    case "Member":
-        $myUser = new Member($name, $address, $city, $state, $phone, $email, $password_1);
-        $myUser->register($connectionId);
-        $myUser->registerMember($connectionId, $myUser);
-        
-    echo "Memb";
-    break;
+    if (empty($dateEnd)) {
+        echo "Ending date is required";
+        return;
     }
-    $_SESSION['userLogged'] = $email;
-    $_SESSION['success'] = "You are now logged in";
-    header('location: index.php');    
+    $date = $dateEnd - date('Y-m-d');    
+    
+    switch(true)
+    {
+        case $date < 7:
+            $myAnnounce = new PaidAd($_SESSION['userLogged'],$connectionId,$dateEnd, $cost, $maxPic);
+            echo "ok";
+            break;
+        case $date >= 7 && $date <14:
+            $maxPic = 5;
+            $cost = 10;
+            $myAnnounce = new PaidAd($_SESSION['userLogged'],$connectionId,$dateEnd, $cost, $maxPic);
+            echo "ok";
+            break;
+        case $date >=14 && $date <= 30:
+            $maxPic = 10;
+            $cost = 15;
+            $myAnnounce = new PaidAd($_SESSION['userLogged'],$connectionId,$dateEnd, $cost, $maxPic);
+            echo "ok";
+            break;
+    }
+     
+    
+    
     
     
 }

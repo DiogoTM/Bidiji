@@ -8,7 +8,6 @@ class PaidAd extends Ad{
     function __construct($userId, $subcategoryId, $totalCost, $imageQuantity){
         
         parent::__construct($userId, $subcategoryId);
-        $this->rate = $rate;
         $this->imageQuantity = $imageQuantiy;
         $this->totalCost = $totalCost;
       
@@ -84,11 +83,10 @@ class PaidAd extends Ad{
         
         try
         {
-            $stmt = $connectionId->prepare("INSERT INTO freead (adId, rate, imageQuantity, totalCost)
-              VALUES(:adId, :rate, :imageQuantity, :totalCost)");
+            $stmt = $connectionId->prepare("INSERT INTO freead (adId, imageQuantity, totalCost)
+              VALUES(:adId, :imageQuantity, :totalCost)");
             
             $stmt->bindparam(":adId", $adId);
-            $stmt->bindparam(":rate", $adId);
             $stmt->bindparam(":imageQuantity", $adId);
             $stmt->bindparam(":totalCost", $adId);           
             
