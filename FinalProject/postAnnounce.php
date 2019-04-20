@@ -14,12 +14,6 @@
       <!-- Custom styles for this template -->
     <link href="postAnnounce.css" rel="stylesheet">
     
-
-
-
-
-
-
   </head>
   <body> 
       <body style="background-color: #7286a5">
@@ -64,9 +58,7 @@
     </div>
 </nav>
       
-      <br/>
-
-      
+      <br/>  
       <!-- Main Content -->
       
   <div class="container">   
@@ -128,8 +120,8 @@
 
             <br><br>
             <div id="teste">
-              <button class="btn btn-secondary">Add Photos</button>&nbsp
-              <button class="btn btn-primary">Submit Announce</button>
+              <button id=btnSubmitAdPhoto name=btnSubmitAdPhoto class="btn btn-secondary">Add Photos</button>&nbsp
+              <button id="btnSubmitAdAnnounce" name="btnSubmitAdAnnounce" class="btn btn-primary">Submit Announce</button>
             </div>
 
         </form>
