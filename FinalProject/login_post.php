@@ -1,31 +1,44 @@
 <?php
-include("dbConfig.php");
+include_once 'dbConfig.php';
+
+
 session_start();
 
-if($_SERVER["REQUEST_METHOD"] == "POST") {
-    // username and password sent from form
-    
-    $myusername = mysqli_real_escape_string($db,$_POST['username']);
-    $mypassword = mysqli_real_escape_string($db,$_POST['password']);
-    
-    $sql = "SELECT userid FROM user WHERE username = '$myusername' and passcode = '$mypassword'";
-    $result = mysqli_query($db,$sql);
-    $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
-    $active = $row['active'];
-    
-    $count = mysqli_num_rows($result);
-    
-    // If result matched $myusername and $mypassword, table row must be 1 row
-    
-    if($count == 1) {
-        session_register("myusername");
-        $_SESSION['login_user'] = $myusername;
-        
-        header("location: welcome.php");
-    }else {
-        $error = "Your Login Name or Password is invalid";
+// initializing variables
+$username = "";
+$email    = "";
+$errors = array(); 
+
+// connect to the database
+$db = $connectionId;
+
+// LOGIN USER
+if (isset($_POST['btnSubmit'])) {
+    $username = mysqli_real_escape_string($db, $_POST['inputEmail']);
+    $password = mysqli_real_escape_string($db, $_POST['inputPass']);
+  
+    if (empty($username)) {
+        array_push($errors, "E-mail is required");
     }
-}
-
-
-https://www.tutorialspoint.com/php/php_mysql_login.htm
+    if (empty($password)) {
+        array_push($errors, "Password is required");
+    }
+  
+    if (count($errors) == 0) {
+        $password = md5($password);
+        $query = "SELECT * FROM user WHERE email='$username' AND password='$password'";
+        $results = mysqli_query($db, $query);
+        if (mysqli_num_rows($results) == 1) {
+          $_SESSION['userLogged'] = $username;
+          $_SESSION['success'] = "You are now logged in";
+          header('location: index.php');
+        }else {
+            array_push($errors, "Wrong username/password combination");
+        }
+    }
+    else{
+        echo "Eita";
+    }
+  }
+  
+  ?>

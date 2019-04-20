@@ -57,7 +57,7 @@
         <article class="card-body mx-auto" >
           
            
-           <form class="form-signin">
+           <form class="form-signin" method="post" action="login_post.php">
             <h2 class="form-signin-heading">Please sign in</h2>
             <label for="inputEmail" class="sr-only">Email address</label>
               <input type="email" name="inputEmail" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>

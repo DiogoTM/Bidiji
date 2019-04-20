@@ -10,18 +10,8 @@ class User
     private $phone;
     private $email;
     private $password;
-    
-    function __construct(){
-        $this->userId = 0;
-        $this->name = "";
-        $this->address ="";
-        $this->city="";
-        $this->state="";
-        $this->phone="";
-        $this->email="";
-        $this->password="";        
-    }
-    
+  
+
     function __construct($name, $address, $city, $state, $phone, $email, $password){
      
         $this->name = $name;
@@ -31,6 +21,7 @@ class User
         $this->phone= $phone;
         $this->email=$email;
         $this->password= $password;
+    
     }   
     
     
@@ -161,6 +152,59 @@ class User
     {
         $this->password = $password;
     }
+
+   
+    
+    public function register($connectionId)
+    {
+  
+       try
+       {              
+           $stmt = $connectionId->prepare("INSERT INTO user(name,address,city, state, phone, email, password) 
+              VALUES(:name, :address, :city, :state, :phone, :email, :password)");
+              
+           $stmt->bindparam(":name", $this->name);
+           $stmt->bindparam(":address", $this->address);
+           $stmt->bindparam(":city", $this->city);
+           $stmt->bindparam(":state", $this->state);
+           $stmt->bindparam(":phone", $this->phone);
+           $stmt->bindparam(":email", $this->email);
+           $stmt->bindparam(":password", $this->password);               
+           $stmt->execute(); 
+   
+           return $stmt; 
+       }
+       catch(PDOException $e)
+       {
+           echo $e->getMessage();
+       }    
+    }
+
+    public function login($email,$password)
+    {
+       try
+       {
+          $password = md5($password);
+          $stmt = $this->db->prepare("SELECT * FROM user WHERE email=:email and password=:password LIMIT 1");
+          $stmt->execute(array(':email'=>$email, ':password'=>$password));
+          $found=$stmt->fetch(PDO::FETCH_ASSOC);
+
+          if($stmt->rowCount() > 0)
+          {
+            $_SESSION['loggedUser'] = $found['email']; 
+
+            return true;            
+          }
+       }
+       catch(PDOException $e)
+       {
+           echo $e->getMessage();
+       }
+   }
+
+ 
+
+
 
     
 }
