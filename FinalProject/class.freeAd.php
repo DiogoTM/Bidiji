@@ -45,6 +45,30 @@ class FreeAd extends Ad
         }
     }
     
+    public function getInfo($connectionId, $adId)
+    {
+        
+        try
+        {       
+            $stmt = $connectionId->prepare("SELECT * FROM freead WHERE adId=:adId LIMIT 1");
+            $stmt->execute(array(':adId'=>$adId));
+            $found=$stmt->fetch(PDO::FETCH_ASSOC);
+            
+            if($stmt->rowCount() > 0)
+            {
+                $_SESSION['userLogged'] = $found['email'];
+                $_SESSION['success'] = "You are now logged in";
+                header('location: index.php');
+                return true;
+            }
+            echo "not nice job dude";
+        }
+        catch(PDOException $e)
+        {
+            echo $e->getMessage();
+        }
+    }
+    
     
 }
 
