@@ -18,7 +18,26 @@ class FreeAd extends Ad
     {
         $this->freeAdId = $freeAdId;
     }
-
+    
+    public function register($connectionId, $adId)
+    {
+        
+        try
+        {
+            $stmt = $connectionId->prepare("INSERT INTO freead (adId)
+              VALUES(:adId)");
+            
+            $stmt->bindparam(":adId", $adId);
+           
+            $stmt->execute();
+            
+            return $stmt;
+        }
+        catch(PDOException $e)
+        {
+            echo $e->getMessage();
+        }
+    }
     
     
 }

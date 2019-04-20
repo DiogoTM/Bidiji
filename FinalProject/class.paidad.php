@@ -5,6 +5,9 @@ class PaidAd extends Ad{
     private $rate;
     private $imageQuantity;
     private $totalCost;
+    
+    
+    
     /**
      * @return mixed
      */
@@ -69,6 +72,28 @@ class PaidAd extends Ad{
         $this->totalCost = $totalCost;
     }
 
+    public function register($connectionId, $adId)
+    {
+        
+        try
+        {
+            $stmt = $connectionId->prepare("INSERT INTO freead (adId, rate, imageQuantity, totalCost)
+              VALUES(:adId, :rate, :imageQuantity, :totalCost)");
+            
+            $stmt->bindparam(":adId", $adId);
+            $stmt->bindparam(":rate", $adId);
+            $stmt->bindparam(":imageQuantity", $adId);
+            $stmt->bindparam(":totalCost", $adId);           
+            
+            $stmt->execute();
+            
+            return $stmt;
+        }
+        catch(PDOException $e)
+        {
+            echo $e->getMessage();
+        }
+    }
     
     
 }
