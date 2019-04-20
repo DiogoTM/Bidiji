@@ -12,7 +12,14 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
       <!-- Custom styles for this template -->
-    <link href="postAnnounce.css" rel="stylesheet"> 
+    <link href="postAnnounce.css" rel="stylesheet">
+    
+
+
+
+
+
+
   </head>
   <body> 
       <body style="background-color: #7286a5">
@@ -73,14 +80,14 @@
                 <div class="input-group-prepend">
                     <span class="input-group-text"> <i class="fa fa-shopping-bag"></i> </span>
                  </div>
-                <input name="" class="form-control" placeholder="Title/Name of the article" type="text">
+                <input name="adTitle" id="adTitle" class="form-control" placeholder="Title/Name of the article" type="text">
             </div> <!-- form-group// -->
 
             <div class="form-group input-group">
                 <div class="input-group-prepend">
                     <span class="input-group-text"> <i class="fa fa-clipboard"></i> </span>
                  </div>
-               <select class="form-control">
+               <select class="form-control" name="adCategory" id="adCategory">
                   <option selected=""> Select Category</option>                  
               </select>
             </div> <!-- form-group// -->
@@ -88,7 +95,7 @@
                 <div class="input-group-prepend">
                     <span class="input-group-text"> <i class="fa fa-clipboard-list"></i> </span>
                  </div>
-               <select class="form-control">
+               <select class="form-control" name="adSubcategory" id="adSubcategory">
                   <option selected=""> Select SubCategory</option>                  
               </select>
             </div> <!-- form-group// -->
@@ -97,42 +104,43 @@
                 <div class="input-group-prepend">
                     <span class="input-group-text"> <i class="fa fa-money-bill"></i> </span>
                  </div>
-                <input name="" class="form-control" placeholder="Price" type="email">
+                <input name="adPrice" id="adPrice" class="form-control" placeholder="Price" type="number">
             </div> <!-- form-group// -->
             <div class="form-group input-group">
                 <div class="input-group-prepend">
                     <span class="input-group-text"> <i class="fa fa-plus"></i> </span>
                 </div>               
-                <input name="" class="form-control" placeholder="Quantity" type="text">
+                <input name="adQuantity" id="adQuantity" class="form-control" placeholder="Quantity" type="number">
             </div> <!-- form-group// -->
             <div class="form-group input-group">
                 <div class="input-group-prepend">
-                    <span class="input-group-text"> <i class="fa fa-pen"></i> </span>
+                    <span class="input-group-text"><i class="fa fa-pen"></i> </span>
                 </div>
-                <input name="" class="form-control" placeholder="Description" type="text">
+                <input name="adDescription" id="adDescription" class="form-control" placeholder="Description" type="text">
             </div> <!-- form-group end.// -->
-            <div class="form-check" id="teste">
-              <div class="input-group-prepend">
-                <input type="checkbox" class="form-check-input" name="checkPayAd" id="checkPayAd">
-                <label class="form-check-label" for="exampleCheck1">Free Annouce</label>
-              </div>
-            </div> <!-- form-group end.// -->      
-            
-            <br>
-            <div>
-              <button class="btn btn-secondary">Add Photos</button>
+            <div class="form-group input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fa fa-calendar"></i> </span>
+                </div>
+                    <input type="text" class="form-control datetimepicker-input" id="datetimepicker5" name="datetimepicker5" data-toggle="datetimepicker" data-target="#datetimepicker5" placeholder="Select Ad date limit"/>
+            </div> <!-- form-group end.// -->
+
+
+            <br><br>
+            <div id="teste">
+              <button class="btn btn-secondary">Add Photos</button>&nbsp
               <button class="btn btn-primary">Submit Announce</button>
             </div>
+
         </form>
         </article>
-        </div> <!-- card.// -->
-        
+        </div> <!-- card.// -->       
         </div>
         <!--container end.//-->
 
-  <br>     
-  <div class="container">         
-	  <div class="card bg-light">
+    <br>     
+    <div class="container">         
+      <div class="card bg-light">
         <article class="card-body mx-auto" >
             <h4 class="card-title mt-3 text-center">Announce Pictures</h4>
             <form name="formPictures" id="formPictures">
@@ -144,10 +152,9 @@
               <img src="http://c2.staticflickr.com/8/7231/6947093326_df216540ff_b.jpg">
               </form>
           </article>
-     </div> <!-- card.// -->
-        
-    </div>
-    <!--container end.//-->
+        </div> <!-- card.// -->     
+      </div>
+      <!--container end.//-->
 
 
 
@@ -156,5 +163,16 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.1/js/tempusdominus-bootstrap-4.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.1/css/tempusdominus-bootstrap-4.min.css" />
+
+  
   </body>
 </html>
+
+<script type="text/javascript">
+// Data Picker Initialization
+
+</script>
