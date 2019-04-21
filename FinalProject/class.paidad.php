@@ -8,7 +8,7 @@ class PaidAd extends Ad{
     function __construct($userId, $subcategoryId, $endDate, $totalCost, $imageQuantity){
         
         parent::__construct($userId, $subcategoryId,$endDate);
-        $this->imageQuantity = $imageQuantiy;
+        $this->imageQuantity = $imageQuantity;
         $this->totalCost = $totalCost;
       
     }
@@ -20,14 +20,6 @@ class PaidAd extends Ad{
     public function getPaidAdId()
     {
         return $this->paidAdId;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getRate()
-    {
-        return $this->rate;
     }
 
     /**
@@ -55,14 +47,6 @@ class PaidAd extends Ad{
     }
 
     /**
-     * @param mixed $rate
-     */
-    public function setRate($rate)
-    {
-        $this->rate = $rate;
-    }
-
-    /**
      * @param mixed $imageQuantity
      */
     public function setImageQuantity($imageQuantity)
@@ -77,18 +61,27 @@ class PaidAd extends Ad{
     {
         $this->totalCost = $totalCost;
     }
-
-    public function register($connectionId, $ad)
+    
+    public function register($connectionId, $userId){
+        parent::register($connectionId, $userId);
+    }
+    
+   
+    public function registerPaidAd($connectionId, $myAnnounce)
     {
+        $adId =  $myAnnounce->getAdId();
+        $img = $myAnnounce->getImageQuantity();
+        $cost = $myAnnounce->getTotalCost();
         
+
         try
-        {
-            $stmt = $connectionId->prepare("INSERT INTO paidad (adId, imageQuantity, totalCost)
-              VALUES(:adId, :imageQuantity, :totalCost)");
+        
+        {                       
+            $stmt = $connectionId->prepare("  INSERT INTO `paidad` (`paidadId`, `adid`, `imageQuantity`, `totalCost`) VALUES (NULL, :adid, :imageQuantity, :totalCost)");
             
-            $stmt->bindparam(":adId", $adId);
-            $stmt->bindparam(":imageQuantity", $adId);
-            $stmt->bindparam(":totalCost", $adId);           
+            $stmt->bindparam(":adid", $adId);
+            $stmt->bindparam(":imageQuantity", $img);
+            $stmt->bindparam(":totalCost", $cost);
             
             $stmt->execute();
             

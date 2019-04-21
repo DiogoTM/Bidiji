@@ -9,15 +9,6 @@ class Ad
     private $endDate;
     
     
-    function __construct($userId, $subcategoryId){
-        
-       $this->userId = $userId;
-       $this->subcategoryId = $subcategoryId;
-       $this->startDate = date('Y-m-d');
-       $this->endDate = date('Y-m-d') + 30;
-        
-    }   
-    
     /**
      * @return mixed
      */
@@ -98,9 +89,17 @@ class Ad
         $this->endDate = $endDate;
     }
 
-    
-    
-    public function register($connectionId, $userId)
+    function __construct($userId, $subcategoryId,$endDate){
+        
+       $this->userId = $userId;
+       $this->subcategoryId = $subcategoryId;
+       $this->startDate = date('Y-m-d');
+       $this->endDate = $endDate;
+       
+        
+    }   
+
+    public function register($connectionId,$userId)
     {
         
         try
@@ -114,13 +113,16 @@ class Ad
             $stmt->bindparam(":endDate", $this->endDate);
             
             $stmt->execute();
-            
-            return $stmt;
+            $this->adId = $connectionId->lastInsertId();
+      
+             return $stmt;
         }
         catch(PDOException $e)
         {
             echo $e->getMessage();
         }
+        
+        
     }
     
     
