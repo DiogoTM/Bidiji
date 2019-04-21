@@ -33,7 +33,7 @@
         <a class="nav-link" href="/Bidiji/FinalProject/login.php">LogIn</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="/Bidiji/FinalProject/postAnnounce.php">Post Ad</a>
+        <a class="nav-link" href="/Bidiji/FinalProject/postAnnounce.php?id=0">Post Ad</a>
       </li>    
     </ul>
   </div>

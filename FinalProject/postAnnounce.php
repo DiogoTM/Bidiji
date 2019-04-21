@@ -1,45 +1,22 @@
 <?php
 include_once 'dbConfig.php';
 
+$categoryID  = $_GET['id'];
+echo $categoryID;
+
 ?>
 
 <!doctype html>
 <html lang="en">
 <head>
-<script type="text/javascript">
-
-$(document).ready(function(){
-	
-    $('#adCategory').on('change',function(){
-        var category = $(this).val();
-        alert(category);
-        /* if(category){
-            $.ajax({
-                type:'POST',
-                url:'fillSubcategory.php',
-                data:'category_id='+category,
-                success:function(html){
-                    $('#subcategory').html(html);
-                      }
-            }); 
-        }else{
-            $('#subcategory').html('<option value="">Select category first</option>');
-     }
-    });   */
-});
-
-</script>
-      
-
-
 
 <title>Title</title>
-<!-- Required meta tags -->
+<!-- <!-- Required meta tags --> 
 <meta charset="utf-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-<!-- Bootstrap CSS -->
+<!-- <!-- Bootstrap CSS --> 
 <link rel="stylesheet"
 	href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
 	integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
@@ -48,8 +25,9 @@ $(document).ready(function(){
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
 	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
 	crossorigin="anonymous">
-<!-- Custom styles for this template -->
+<!-- <!-- Custom styles for this template --> 
 <link href="postAnnounce.css" rel="stylesheet">
+
 
 </head>
 <body>
@@ -102,35 +80,30 @@ $(document).ready(function(){
 				<h4 class="card-title mt-3 text-center">Create Announce</h4>
 				<p class="text-center">Please enter the following information to
 					continue:</p>
-				<form>
-					<div class="form-group input-group">
-						<div class="input-group-prepend">
-							<span class="input-group-text"> <i class="fa fa-shopping-bag"></i>
-							</span>
-						</div>
-						<input name="adTitle" id="adTitle" class="form-control"
-							placeholder="Title/Name of the article" type="text">
-					</div>
-					<!-- form-group// -->
-
+				<form method="post" action="postAnnounce_post.php">
 					<div class="form-group input-group">
 						<div class="input-group-prepend">
 							<span class="input-group-text"> <i class="fa fa-clipboard"></i>
 							</span>
 						</div>
-						<select class="form-control" name="adCategory" id="adCategory"
-							>
-							<option selected="">Select Category</option>      
+						<select class="form-control" name="adCategory" id="adCategory" onchange="location = 'postAnnounce.php?id=' + this.options[this.selectedIndex].value" >
+							
                         <?php
-
+                        echo "<option value= '0' >Select Category</option>";
                         try {
                             $stmt = $connectionId->prepare("SELECT * FROM category");
                             $stmt->execute(array());
-
+                            
                             if ($stmt->rowCount() > 0) {
-
                                 foreach ($stmt as $value) {
+                                    
+                                    if ($value['categoryId'] === $id) {
+                                        echo "<option selected value ='" . $value['categoryId'] . "'>" . $value['nameENG'] . "</option>";
+                                        
+                                    }
+                                    else{
                                     echo "<option value ='" . $value['categoryId'] . "'>" . $value['nameENG'] . "</option>";
+                                    }
                                 }
                             }
                             echo "not nice job dude";
@@ -138,8 +111,14 @@ $(document).ready(function(){
                             echo $e->getMessage();
                         }
 
-                        ?>   
+                        ?>                           
+   
               </select>
+              <script>
+                    document.getElementById('adCategory').value = "<?php echo $categoryID?>";
+                    </script>
+                                  
+              
 					</div>
 					<!-- form-group// -->
 					<div class="form-group input-group">
@@ -151,14 +130,40 @@ $(document).ready(function(){
 						<select class="form-control" name="adsubCategory"
 							id="adsubCategory">
 							<option selected="">Select SubCategory</option>
-							
-													</select>
+							   <?php
+
+                        try {
+                            $stmt = $connectionId->prepare("SELECT * FROM subcategory WHERE categoryId = ".$categoryID);
+                            $stmt->execute(array());
+
+                            if ($stmt->rowCount() > 0) {
+
+                                foreach ($stmt as $value) {
+                                    echo "<option value ='" . $value['subcategoryId'] . "'>" . $value['nameENG'] . "</option>";
+                                }
+                            }
+                            echo "not nice job dude";
+                        } catch (PDOException $e) {
+                            echo $e->getMessage();
+                        }
+                        ?>
+                        
+                        </select>
+													
 
 
 
 					</div>
 					<!-- form-group// -->
-
+					<div class="form-group input-group">
+						<div class="input-group-prepend">
+							<span class="input-group-text"> <i class="fa fa-shopping-bag"></i>
+							</span>
+						</div>
+						<input name="adTitle" id="adTitle" class="form-control"
+							placeholder="Title/Name of the article" type="text">
+					</div>
+	               <!-- form-group// -->
 					<div class="form-group input-group">
 						<div class="input-group-prepend">
 							<span class="input-group-text"> <i class="fa fa-money-bill"></i>
