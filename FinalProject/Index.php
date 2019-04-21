@@ -37,7 +37,7 @@
       </li>    
     </ul>
   </div>
-  <a class="navbar-brand mx-auto" href="#">Bidiji</a>
+  <a class="navbar-brand mx-auto" href="#">Bidiji Market</a>
     <div class="navbar-collapse collapse">
         <ul class="nav navbar-nav ml-auto">
             <li class="nav-item dropdown dmenu">
@@ -61,16 +61,16 @@
 <div class="jumbotron jumbotron-fluid">
   <div class="container">
     <h1 class="display-4">Bidiji</h1>
-    <p class="lead">Find your rusbé, Annie awuyoki?</p>
+    <p class="lead">Either Buying or Selling, use it at your own risk. </p>
   </div>
 </div>
 
 <br><br>
-
-<!--   Carousel Attempt -->
+<!--   Carousel  -->
 <!-- Top content -->
 <div class="top-content">
     <div class="container-fluid">
+        <p  href=""> <font color="#edf2f1"> Premium ads</font></p>
         <div id="carousel-example" class="carousel slide" data-ride="carousel">
             <div class="carousel-inner row w-100 mx-auto" role="listbox">
                 <div class="carousel-item col-12 col-sm-6 col-md-4 col-lg-3 active">
@@ -112,51 +112,6 @@
 
 <br><br>
 
-
-<div><br/></div>
-<div class="index-Announces">
-
-<!-- Paid Announces -->
-<div class="card-deck">
-<div class="card" style="width:400px">
-  <img class="card-img-top" src="img_avatar1.png" alt="Card image">
-  <div class="card-body">
-    <h4 class="card-title">Item1</h4>
-    <p class="card-text">Some example text.</p>
-    <a href="#" class="btn btn-primary">See Announce</a>
-  </div>
-</div>
-<div class="card" style="width:400px">
-  <img class="card-img-top" src="img_avatar1.png" alt="Card image">
-  <div class="card-body">
-    <h4 class="card-title">Item2</h4>
-    <p class="card-text">Some example text.</p>
-    <a href="#" class="btn btn-primary">See Announce</a>
-  </div>
-</div>
-<div class="card" style="width:400px" >
-  <img class="card-img-top" src="img_avatar1.png" alt="Card image">
-  <div class="card-body">
-    <h4 class="card-title">Item3</h4>
-    <p class="card-text">Some example text.</p>
-    <a href="#" class="btn btn-primary">See Announce</a>
-  </div>
-</div>
-<div class="card" style="width:400px">
-  <img class="card-img-top" src="img_avatar1.png" alt="Card image">
-  <div class="card-body">
-    <h4 class="card-title">Item4</h4>
-    <p class="card-text">Some example text.</p>
-    <a href="#" class="btn btn-primary">See Announce</a>
-  </div>
- 
-</div>
-<br/>
-</div>
-
- <a  href=""> <font color="#edf2f1"> Click here to see more items</font></a>
- <br><br><br>
- </div> <!-- end of payed Announces content -->
 
 
 <div class="searchNavBar" >
@@ -310,6 +265,8 @@
 </div> <!-- end of free Announces content -->
 
 <br><br><br>
+<?php include('footer.php'); ?>
+
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

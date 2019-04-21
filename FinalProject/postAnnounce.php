@@ -169,6 +169,7 @@
       </div>
       <!--container end.//-->
 
+      <?php include("footer.php")?>
 
 
     <!-- Optional JavaScript -->
