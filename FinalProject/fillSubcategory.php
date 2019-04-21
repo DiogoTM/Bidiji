@@ -1,25 +1,25 @@
   <?php
 
-
-  echo "<option > Whaaaaaat </option>";
+  include('dbConfig.php');
+ 
   
-                      /*   try {
-                            $choice = mysql_real_escape_string($_GET['choice']);
-                            $stmt = $connectionId->prepare("SELECT * FROM subcategory WHERE categoryId = "+$choice);
-                            $stmt->execute(array());
-
-                            if ($stmt->rowCount() > 0) {
-
-                                foreach ($stmt as $value) {
-                                    echo "<option value ='" . $value['subcategoryId'] . "'>" . $value['nameENG'] . "</option>";
-                                }
-                                $message = "nice";
-                                echo "<script type='text/javascript'>alert('$message');</script>";
-                            }$message = "wrong answer";
-                            echo "<script type='text/javascript'>alert('$message');</script>";
-                            echo "not nice job dude";
-                        } catch (PDOException $e) {
-                            echo $e->getMessage();
-                        } */
-
+ 
+  if(isset($_POST["category_id"])){
+      
+      try {
+          $stmt = $connectionId->prepare("SELECT * FROM subcategory WHERE categoryId = " .$_POST['country_id']);
+          $stmt->execute(array());
+          
+          if ($stmt->rowCount() > 0) {
+              
+              foreach ($stmt as $value) {
+                  echo "<option value ='" . $value['subcategoryId'] . "'>" . $value['nameENG'] . "</option>";
+              }
+          }
+          echo "not nice job dude";
+      } catch (PDOException $e) {
+          echo $e->getMessage();
+      }
+      
+  }  
                         ?>   

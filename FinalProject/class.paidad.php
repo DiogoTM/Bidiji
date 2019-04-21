@@ -5,9 +5,9 @@ class PaidAd extends Ad{
     private $imageQuantity;
     private $totalCost;
     
-    function __construct($userId, $subcategoryId, $totalCost, $imageQuantity){
+    function __construct($userId, $subcategoryId, $endDate, $totalCost, $imageQuantity){
         
-        parent::__construct($userId, $subcategoryId);
+        parent::__construct($userId, $subcategoryId,$endDate);
         $this->imageQuantity = $imageQuantiy;
         $this->totalCost = $totalCost;
       
@@ -78,12 +78,12 @@ class PaidAd extends Ad{
         $this->totalCost = $totalCost;
     }
 
-    public function register($connectionId, $adId)
+    public function register($connectionId, $ad)
     {
         
         try
         {
-            $stmt = $connectionId->prepare("INSERT INTO freead (adId, imageQuantity, totalCost)
+            $stmt = $connectionId->prepare("INSERT INTO paidad (adId, imageQuantity, totalCost)
               VALUES(:adId, :imageQuantity, :totalCost)");
             
             $stmt->bindparam(":adId", $adId);

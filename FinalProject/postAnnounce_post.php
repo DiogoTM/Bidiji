@@ -11,7 +11,7 @@ if (isset($_POST['btnSubmitAdAnnounce'])) {
     $_SESSION['userLogged']= 1;
    
     $name = $_POST['adTitle'];
-    $subcategory = $_POST['adSubcategory'];
+    $subcategory = 1;
     $price = $_POST['adPrice'];
     $quantity = $_POST['adQuantity'];
     $desc = $_POST['adDescription'];
@@ -50,7 +50,9 @@ if (isset($_POST['btnSubmitAdAnnounce'])) {
     switch(true)
     {
         case $date < 7:
-            $myAnnounce = new PaidAd($_SESSION['userLogged'],$connectionId,$dateEnd, $cost, $maxPic);
+            
+            $myAnnounce = new PaidAd($_SESSION['userLogged'],$subcategory,$dateEnd, $cost, $maxPic);
+            $myAnnounce->register($connectionId, $adId);
             echo "ok";
             break;
         case $date >= 7 && $date <14:

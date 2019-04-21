@@ -6,14 +6,32 @@ include_once 'dbConfig.php';
 <!doctype html>
 <html lang="en">
 <head>
-<!-- CHECAR ISSO -->
- <script type="text/javascript">
- $("#adCategory").change(function() {
-		$("#adSubcategory").load("fillSubcategory.php?choice=" + $("#adCategory").val());
-									});
-	</script>
+<script type="text/javascript">
+
+$(document).ready(function(){
 	
-	<!-- CHECAR ISSO -->
+    $('#adCategory').on('change',function(){
+        var category = $(this).val();
+        alert(category);
+        /* if(category){
+            $.ajax({
+                type:'POST',
+                url:'fillSubcategory.php',
+                data:'category_id='+category,
+                success:function(html){
+                    $('#subcategory').html(html);
+                      }
+            }); 
+        }else{
+            $('#subcategory').html('<option value="">Select category first</option>');
+     }
+    });   */
+});
+
+</script>
+      
+
+
 
 <title>Title</title>
 <!-- Required meta tags -->
@@ -100,7 +118,8 @@ include_once 'dbConfig.php';
 							<span class="input-group-text"> <i class="fa fa-clipboard"></i>
 							</span>
 						</div>
-						<select class="form-control" name="adCategory" id="adCategory">
+						<select class="form-control" name="adCategory" id="adCategory"
+							>
 							<option selected="">Select Category</option>      
                         <?php
 
@@ -127,11 +146,16 @@ include_once 'dbConfig.php';
 						<div class="input-group-prepend">
 							<span class="input-group-text"> <i class="fa fa-clipboard-list"></i>
 							</span>
+
 						</div>
-						<select class="form-control" name="adSubcategory"
-							id="adSubcategory">
+						<select class="form-control" name="adsubCategory"
+							id="adsubCategory">
 							<option selected="">Select SubCategory</option>
+							
 													</select>
+
+
+
 					</div>
 					<!-- form-group// -->
 
@@ -261,8 +285,3 @@ include_once 'dbConfig.php';
 
 </body>
 </html>
-
-<script type="text/javascript">
-// Data Picker Initialization
-
-</script>
