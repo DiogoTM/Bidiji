@@ -6,6 +6,15 @@ class Picture
     private $articleId;
     private $picture;
     private $description;
+    
+    
+    function __construct($articleId, $picture, $description){
+        
+        $this->articleId = $articleId;
+        $this->picture = $picture;
+        $this->description = $description;        
+    }
+    
     /**
      * @return mixed
      */
@@ -84,6 +93,32 @@ class Picture
         }
     }
     
+    private $articleId;
+    private $picture;
+    private $description;
+    
+    
+    public function register($connectionId, $articleId)
+    {
+        
+        try
+        {
+            $stmt = $connectionId->prepare("INSERT INTO pictures(articleid,picture,description)
+              VALUES(:articleid, :picture, :description)");
+            
+            $stmt->bindparam(":name", $articleId);
+            $stmt->bindparam(":picture", $this->picture);
+            $stmt->bindparam(":description", $this->description);
+   
+            $stmt->execute();
+            
+            return $stmt;
+        }
+        catch(PDOException $e)
+        {
+            echo $e->getMessage();
+        }
+    }
     
     
     

@@ -1,95 +1,160 @@
 <?php
-    ?>
+include_once 'dbConfig.php';
+
+?>
+
 <!doctype html>
 <html lang="en">
-  <head>
-    <title>Title</title>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<head>
+<script type="text/javascript">
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-      <!-- Custom styles for this template -->
-    <link href="postAnnounce.css" rel="stylesheet">
-    
-  </head>
-  <body> 
-      <body style="background-color: #7286a5">
- 
-  <!-- NAVBAR -->
-  <nav class="navbar navbar-expand-md bg-dark navbar-dark">
-  <!-- Brand -->
-  <a class="navbar-brand" href="/Bidiji/FinalProject/index.php">Home</a>
+$(document).ready(function(){
+	
+    $('#adCategory').on('change',function(){
+        var category = $(this).val();
+        alert(category);
+        /* if(category){
+            $.ajax({
+                type:'POST',
+                url:'fillSubcategory.php',
+                data:'category_id='+category,
+                success:function(html){
+                    $('#subcategory').html(html);
+                      }
+            }); 
+        }else{
+            $('#subcategory').html('<option value="">Select category first</option>');
+     }
+    });   */
+});
 
-  <!-- Toggler/collapsibe Button -->
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-
-  <!-- Navbar links -->
-  <div class="collapse navbar-collapse" id="collapsibleNavbar">
-    <ul class="navbar-nav">
-      <li class="nav-item">
-        <a class="nav-link" href="/Bidiji/FinalProject/login.php">Login</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/Bidiji/FinalProject/postAnnounce.php">Post Ad</a>
-      </li>    
-    </ul>
-  </div>
-  <a class="navbar-brand mx-auto" href="/Bidiji/FinalProject/index.php">Bidiji</a>
-    <div class="navbar-collapse collapse">
-        <ul class="nav navbar-nav ml-auto">
-            <li class="nav-item dropdown dmenu">
-            <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-              Language
-            </a>
-            <div class="dropdown-menu sm-menu">
-              <a class="dropdown-item" href="#">English</a>
-              <a class="dropdown-item" href="#">French</a>
-            </div>
-          </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">User</a>
-            </li>
-        </ul>
-    </div>
-</nav>
+</script>
       
-      <br/>  
-      <!-- Main Content -->
-      
-  <div class="container">   
-       
-	<div class="card bg-light">
-        <article class="card-body mx-auto" >
-            <h4 class="card-title mt-3 text-center">Create Announce</h4>
-            <p class="text-center">Please enter the following information to continue:</p>
-          <form>
-            <div class="form-group input-group">
-                <div class="input-group-prepend">
-                    <span class="input-group-text"> <i class="fa fa-shopping-bag"></i> </span>
-                 </div>
-                <input name="adTitle" id="adTitle" class="form-control" placeholder="Title/Name of the article" type="text">
-            </div> <!-- form-group// -->
 
-            <div class="form-group input-group">
-                <div class="input-group-prepend">
-                    <span class="input-group-text"> <i class="fa fa-clipboard"></i> </span>
-                 </div>
-               <select class="form-control" name="adCategory" id="adCategory">
-                  <option selected=""> Select Category</option>                  
+
+
+<title>Title</title>
+<!-- Required meta tags -->
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<!-- Bootstrap CSS -->
+<link rel="stylesheet"
+	href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+	integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
+	crossorigin="anonymous">
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+	crossorigin="anonymous">
+<!-- Custom styles for this template -->
+<link href="postAnnounce.css" rel="stylesheet">
+
+</head>
+<body>
+
+
+<body style="background-color: #7286a5">
+
+	<!-- NAVBAR -->
+	<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+		<!-- Brand -->
+		<a class="navbar-brand" href="/Bidiji/FinalProject/index.php">Home</a>
+
+		<!-- Toggler/collapsibe Button -->
+		<button class="navbar-toggler" type="button" data-toggle="collapse"
+			data-target="#collapsibleNavbar">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+
+		<!-- Navbar links -->
+		<div class="collapse navbar-collapse" id="collapsibleNavbar">
+			<ul class="navbar-nav">
+				<li class="nav-item"><a class="nav-link"
+					href="/Bidiji/FinalProject/login.php">Login</a></li>
+				<li class="nav-item"><a class="nav-link"
+					href="/Bidiji/FinalProject/postAnnounce.php">Post Ad</a></li>
+			</ul>
+		</div>
+		<a class="navbar-brand mx-auto" href="/Bidiji/FinalProject/index.php">Bidiji</a>
+		<div class="navbar-collapse collapse">
+			<ul class="nav navbar-nav ml-auto">
+				<li class="nav-item dropdown dmenu"><a
+					class="nav-link dropdown-toggle" href="#" id="navbardrop"
+					data-toggle="dropdown"> Language </a>
+					<div class="dropdown-menu sm-menu">
+						<a class="dropdown-item" href="#">English</a> <a
+							class="dropdown-item" href="#">French</a>
+					</div></li>
+				<li class="nav-item"><a class="nav-link" href="#">User</a></li>
+			</ul>
+		</div>
+	</nav>
+
+	<br />
+	<!-- Main Content -->
+
+	<div class="container">
+
+		<div class="card bg-light">
+			<article class="card-body mx-auto">
+				<h4 class="card-title mt-3 text-center">Create Announce</h4>
+				<p class="text-center">Please enter the following information to
+					continue:</p>
+				<form>
+					<div class="form-group input-group">
+						<div class="input-group-prepend">
+							<span class="input-group-text"> <i class="fa fa-shopping-bag"></i>
+							</span>
+						</div>
+						<input name="adTitle" id="adTitle" class="form-control"
+							placeholder="Title/Name of the article" type="text">
+					</div>
+					<!-- form-group// -->
+
+					<div class="form-group input-group">
+						<div class="input-group-prepend">
+							<span class="input-group-text"> <i class="fa fa-clipboard"></i>
+							</span>
+						</div>
+						<select class="form-control" name="adCategory" id="adCategory"
+							>
+							<option selected="">Select Category</option>      
+                        <?php
+
+                        try {
+                            $stmt = $connectionId->prepare("SELECT * FROM category");
+                            $stmt->execute(array());
+
+                            if ($stmt->rowCount() > 0) {
+
+                                foreach ($stmt as $value) {
+                                    echo "<option value ='" . $value['categoryId'] . "'>" . $value['nameENG'] . "</option>";
+                                }
+                            }
+                            echo "not nice job dude";
+                        } catch (PDOException $e) {
+                            echo $e->getMessage();
+                        }
+
+                        ?>   
               </select>
-            </div> <!-- form-group// -->
-            <div class="form-group input-group">
-                <div class="input-group-prepend">
-                    <span class="input-group-text"> <i class="fa fa-clipboard-list"></i> </span>
-                 </div>
-               <select class="form-control" name="adSubcategory" id="adSubcategory">
-                  <option selected=""> Select SubCategory</option>                  
-              </select>
+            
+						</div>
+						<select class="form-control" name="adsubCategory"
+							id="adsubCategory">
+							<option selected="">Select SubCategory</option>
+							
+													</select>
+          
+          
+					</div>
+					<!-- form-group// -->
+
+
+
+
             </div> <!-- form-group// -->
 
             <div class="form-group input-group">
@@ -185,8 +250,3 @@
   
   </body>
 </html>
-
-<script type="text/javascript">
-// Data Picker Initialization
-
-</script>

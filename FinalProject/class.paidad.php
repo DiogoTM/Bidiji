@@ -2,9 +2,18 @@
 
 class PaidAd extends Ad{
     private $paidAdId;
-    private $rate;
     private $imageQuantity;
     private $totalCost;
+    
+    function __construct($userId, $subcategoryId, $endDate, $totalCost, $imageQuantity){
+        
+        parent::__construct($userId, $subcategoryId,$endDate);
+        $this->imageQuantity = $imageQuantiy;
+        $this->totalCost = $totalCost;
+      
+    }
+    
+    
     /**
      * @return mixed
      */
@@ -69,6 +78,27 @@ class PaidAd extends Ad{
         $this->totalCost = $totalCost;
     }
 
+    public function register($connectionId, $ad)
+    {
+        
+        try
+        {
+            $stmt = $connectionId->prepare("INSERT INTO paidad (adId, imageQuantity, totalCost)
+              VALUES(:adId, :imageQuantity, :totalCost)");
+            
+            $stmt->bindparam(":adId", $adId);
+            $stmt->bindparam(":imageQuantity", $adId);
+            $stmt->bindparam(":totalCost", $adId);           
+            
+            $stmt->execute();
+            
+            return $stmt;
+        }
+        catch(PDOException $e)
+        {
+            echo $e->getMessage();
+        }
+    }
     
     
 }

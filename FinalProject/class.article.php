@@ -8,6 +8,18 @@ class Article
    private $quantity;
    private $description;
    private $name;
+   
+   function __construct($price, $quantity, $description, $name){
+       
+       $this->userId = $userId;
+       $this->subcategoryId = $subcategoryId;
+       $this->startDate = date('Y-m-d');
+       $this->endDate = date('Y-m-d') + 30;
+       $this->name = $name;
+       
+   }   
+   
+   
 /**
      * @return mixed
      */
@@ -87,7 +99,30 @@ class Article
     {
         $this->name = $name;
     }
-
+    
+    public function register($connectionId, $adId)
+    {
+        
+        try
+        {
+            $stmt = $connectionId->prepare("INSERT INTO article (adId,price,quantity, description, name)
+              VALUES(:adId, :price, :quantity, :description, :name)");
+            
+            $stmt->bindparam(":adId", $adId);
+            $stmt->bindparam(":price", $this->price);
+            $stmt->bindparam(":quantity", $this->quantity);
+            $stmt->bindparam(":description", $this->description);
+            $stmt->bindparam(":name", $this->name);
+            
+            $stmt->execute();
+            
+            return $stmt;
+        }
+        catch(PDOException $e)
+        {
+            echo $e->getMessage();
+        }
+    }
    
 }
 
