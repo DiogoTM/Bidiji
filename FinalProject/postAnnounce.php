@@ -202,91 +202,99 @@ echo $categoryID;
 					<!-- form-group end.// -->
 
 
-					<fieldset class="form-group">
-						<div class="row">
-							<legend class="col-form-label col-sm-2 pt-0"></legend>
-							<div class="col-sm-10">
-								<div class="form-check">
-									<input class="form-check-input" type="radio" name="gridRadios"
-										id="gridRadios1" value="option1" checked> <label
-										class="form-check-label" for="gridRadios1"> Payed Ad </label>
-								</div>
-								<div class="form-check">
-									<input class="form-check-input" type="radio" name="gridRadios"
-										id="gridRadios2" value="option2"> <label
-										class="form-check-label" for="gridRadios2"> Free Ad (10 days
-										expiration) </label>
-								</div>
-							</div>
-						</div>
-					</fieldset>
-					<!-- form-group end.// -->
+
+            </div> <!-- form-group// -->
+
+            <div class="form-group input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"> <i class="fa fa-money-bill"></i> </span>
+                 </div>
+                <input name="adPrice" id="adPrice" class="form-control" placeholder="Price" type="number">
+            </div> <!-- form-group// -->
+            <div class="form-group input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"> <i class="fa fa-plus"></i> </span>
+                </div>               
+                <input name="adQuantity" id="adQuantity" class="form-control" placeholder="Quantity" type="number">
+            </div> <!-- form-group// -->
+            <div class="form-group input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fa fa-pen"></i> </span>
+                </div>
+                <input name="adDescription" id="adDescription" class="form-control" placeholder="Description" type="text">
+            </div> <!-- form-group end.// -->
+            <div class="form-group input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fa fa-calendar"></i> </span>
+                </div>
+                    <input type="text" class="form-control datetimepicker-input" id="datetimepicker5" name="datetimepicker5" data-toggle="datetimepicker" data-target="#datetimepicker5" placeholder="Select Ad date limit"/>
+            </div> <!-- form-group end.// -->
 
 
-					<br> <br>
-					<div id="teste">
-						<button id=btnSubmitAdPhoto name=btnSubmitAdPhoto
-							class="btn btn-secondary">Add Photos</button>
-						&nbsp
-						<button id="btnSubmitAdAnnounce" name="btnSubmitAdAnnounce"
-							class="btn btn-primary">Submit Announce</button>
-					</div>
-
-				</form>
-			</article>
-		</div>
-		<!-- card.// -->
-	</div>
-	<!--container end.//-->
-
-	<br>
-	<div class="container">
-		<div class="card bg-light">
-			<article class="card-body mx-auto">
-				<h4 class="card-title mt-3 text-center">Announce Pictures</h4>
-				<form name="formPictures" id="formPictures">
-					<img
-						src="http://c1.staticflickr.com/9/8450/8026519634_f33f3724ea_b.jpg">
-					<img
-						src="http://c2.staticflickr.com/8/7218/7209301894_c99d3a33c2_h.jpg">
-					<img
-						src="http://c2.staticflickr.com/8/7231/6947093326_df216540ff_b.jpg">
-					<img
-						src="http://c1.staticflickr.com/9/8450/8026519634_f33f3724ea_b.jpg">
-					<img
-						src="http://c2.staticflickr.com/8/7218/7209301894_c99d3a33c2_h.jpg">
-					<img
-						src="http://c2.staticflickr.com/8/7231/6947093326_df216540ff_b.jpg">
-				</form>
-			</article>
-		</div>
-		<!-- card.// -->
-	</div>
-	<!--container end.//-->
+            <fieldset class="form-group">
+                <div class="row">
+                  <legend class="col-form-label col-sm-2 pt-0"></legend>
+                  <div class="col-sm-10">
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
+                      <label class="form-check-label" for="gridRadios1">
+                        Payed Ad
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">
+                      <label class="form-check-label" for="gridRadios2">                        
+                        Free Ad (10 days expiration)
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </fieldset><!-- form-group end.// -->   
 
 
+            <br><br>
+            <div id="teste">
+              <button id=btnSubmitAdPhoto name=btnSubmitAdPhoto class="btn btn-secondary">Add Photos</button>&nbsp
+              <button id="btnSubmitAdAnnounce" name="btnSubmitAdAnnounce" class="btn btn-primary">Submit Announce</button>
+            </div>
 
-	<!-- Optional JavaScript -->
-	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
-	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-		crossorigin="anonymous"></script>
-	<script
-		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-		integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-		crossorigin="anonymous"></script>
-	<script
-		src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-		integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-		crossorigin="anonymous"></script>
+        </form>
+        </article>
+        </div> <!-- card.// -->       
+        </div>
+        <!--container end.//-->
 
-	<script type="text/javascript"
-		src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
-	<script type="text/javascript"
-		src="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.1/js/tempusdominus-bootstrap-4.min.js"></script>
-	<link rel="stylesheet"
-		href="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.1/css/tempusdominus-bootstrap-4.min.css" />
+    <br>     
+    <div class="container">         
+      <div class="card bg-light">
+        <article class="card-body mx-auto" >
+            <h4 class="card-title mt-3 text-center">Announce Pictures</h4>
+            <form name="formPictures" id="formPictures">
+              <img src="http://c1.staticflickr.com/9/8450/8026519634_f33f3724ea_b.jpg">
+              <img src="http://c2.staticflickr.com/8/7218/7209301894_c99d3a33c2_h.jpg">
+              <img src="http://c2.staticflickr.com/8/7231/6947093326_df216540ff_b.jpg">
+              <img src="http://c1.staticflickr.com/9/8450/8026519634_f33f3724ea_b.jpg">
+              <img src="http://c2.staticflickr.com/8/7218/7209301894_c99d3a33c2_h.jpg">
+              <img src="http://c2.staticflickr.com/8/7231/6947093326_df216540ff_b.jpg">
+              </form>
+          </article>
+        </div> <!-- card.// -->     
+      </div>
+      <!--container end.//-->
+
+      <?php include("footer.php")?>
 
 
-</body>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.1/js/tempusdominus-bootstrap-4.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.1/css/tempusdominus-bootstrap-4.min.css" />
+
+  
+  </body>
 </html>
