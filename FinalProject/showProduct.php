@@ -101,6 +101,7 @@ include_once 'dbConfig.php';
                 <a href="#" class="btn btn-link">Sell item like this</a>
               </div>
             </nav>
+            
           </div>
           <div class="card-body store-body">
             <div class="product-info">
@@ -111,7 +112,16 @@ include_once 'dbConfig.php';
                     <li><img src="https://via.placeholder.com/350x350/f16a22" alt=""></li>
                     <li><img src="https://via.placeholder.com/350x350/d3ffce" alt=""></li>
                     <li><img src="https://via.placeholder.com/350x350/7937fc" alt=""></li>
-                    <li><img src="https://via.placeholder.com/350x350/930000" alt=""></li>
+					          <li><img src="https://via.placeholder.com/350x350/930000" alt=""></li>
+                  </ol>
+                </div>
+                <div class="product-gallery-thumbnails">
+                  <ol class="thumbnails-list list-unstyled">
+                    <li><img src="https://via.placeholder.com/350x350/ffcf5b" alt=""></li>
+                    <li><img src="https://via.placeholder.com/350x350/f16a22" alt=""></li>
+                    <li><img src="https://via.placeholder.com/350x350/d3ffce" alt=""></li>
+                    <li><img src="https://via.placeholder.com/350x350/7937fc" alt=""></li>
+					          <li><img src="https://via.placeholder.com/350x350/930000" alt=""></li>
                   </ol>
                 </div>
                 <div class="product-gallery-featured">

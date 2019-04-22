@@ -13,6 +13,7 @@
     <!-- Custom styles for this template -->
     <link href="index.css" rel="stylesheet"> 
   </head>
+
   <body style="background-color: #7286a5">
  
 
@@ -37,7 +38,7 @@
       </li>    
     </ul>
   </div>
-  <a class="navbar-brand mx-auto" href="#">Bidiji Market</a>
+  <a class="navbar-brand mx-auto" href="#">Bidiji</a>
     <div class="navbar-collapse collapse">
         <ul class="nav navbar-nav ml-auto">
             <li class="nav-item dropdown dmenu">
@@ -65,7 +66,7 @@
   </div>
 </div>
 
-<br><br>
+<br>
 <!--   Carousel  -->
 <!-- Top content -->
 <div class="top-content">
@@ -74,28 +75,60 @@
         <div id="carousel-example" class="carousel slide" data-ride="carousel">
             <div class="carousel-inner row w-100 mx-auto" role="listbox">
                 <div class="carousel-item col-12 col-sm-6 col-md-4 col-lg-3 active">
-                    <img src="assets/img/backgrounds/1.jpg" class="img-fluid mx-auto d-block" alt="img1">
+                    <figcaption name="premAdTitle" class="premAdTitle">Produto</figcaption>
+                      <a href="#" class="carousel-img-link">
+                        <img src="assets/img/backgrounds/1.jpg" class="img-fluid mx-auto d-block" alt="img1" onclick="carouselClick();">
+                        </a>
+                      <figcaption name="premAdPrice" class="premAdPrice">Preço</figcaption>
+                </div>            
+                <div class="carousel-item col-12 col-sm-6 col-md-4 col-lg-3">
+                    <figcaption name="premAdTitle" class="premAdTitle">Produto</figcaption>
+                      <a href="#" class="carousel-img-link">
+                    <img src="assets/img/backgrounds/2.jpg" class="img-fluid mx-auto d-block" alt="img2" onclick="carouselClick();">
+                        </a>
+                    <figcaption name="premAdPrice" class="premAdPrice">Preço</figcaption>
                 </div>
                 <div class="carousel-item col-12 col-sm-6 col-md-4 col-lg-3">
-                    <img src="assets/img/backgrounds/2.jpg" class="img-fluid mx-auto d-block" alt="img2">
+                    <figcaption name="premAdTitle" class="premAdTitle">Produto</figcaption>
+                      <a href="#" class="carousel-img-link">
+                    <img src="assets/img/backgrounds/3.jpg" class="img-fluid mx-auto d-block" alt="img3" onclick="carouselClick();">
+                        </a>
+                    <figcaption name="premAdPrice" class="premAdPrice">Preço</figcaption>
                 </div>
                 <div class="carousel-item col-12 col-sm-6 col-md-4 col-lg-3">
-                    <img src="assets/img/backgrounds/3.jpg" class="img-fluid mx-auto d-block" alt="img3">
+                    <figcaption name="premAdTitle" class="premAdTitle">Produto</figcaption>
+                      <a href="#" class="carousel-img-link">
+                    <img src="assets/img/backgrounds/4.jpg" class="img-fluid mx-auto d-block" alt="img4" onclick="carouselClick();">
+                        </a>
+                    <figcaption name="premAdPrice" class="premAdPrice">Preço</figcaption>
                 </div>
                 <div class="carousel-item col-12 col-sm-6 col-md-4 col-lg-3">
-                    <img src="assets/img/backgrounds/4.jpg" class="img-fluid mx-auto d-block" alt="img4">
+                    <figcaption name="premAdTitle" class="premAdTitle">Produto</figcaption>
+                      <a href="#" class="carousel-img-link">
+                    <img src="assets/img/backgrounds/5.jpg" class="img-fluid mx-auto d-block" alt="img5" onclick="carouselClick();">
+                        </a>
+                    <figcaption name="premAdPrice" class="premAdPrice">Preço</figcaption>
                 </div>
                 <div class="carousel-item col-12 col-sm-6 col-md-4 col-lg-3">
-                    <img src="assets/img/backgrounds/5.jpg" class="img-fluid mx-auto d-block" alt="img5">
+                    <figcaption name="premAdTitle" class="premAdTitle">Produto</figcaption>
+                      <a href="#" class="carousel-img-link">
+                    <img src="assets/img/backgrounds/6.jpg" class="img-fluid mx-auto d-block" alt="img6" onclick="carouselClick();">
+                        </a>
+                    <figcaption name="premAdPrice" class="premAdPrice">Preço</figcaption>
                 </div>
                 <div class="carousel-item col-12 col-sm-6 col-md-4 col-lg-3">
-                    <img src="assets/img/backgrounds/6.jpg" class="img-fluid mx-auto d-block" alt="img6">
+                    <figcaption name="premAdTitle" class="premAdTitle">Produto</figcaption>
+                      <a href="#" class="carousel-img-link">
+                    <img src="assets/img/backgrounds/7.jpg" class="img-fluid mx-auto d-block" alt="img7" onclick="carouselClick();">
+                        </a>
+                    <figcaption name="premAdPrice" class="premAdPrice">Preço</figcaption>
                 </div>
                 <div class="carousel-item col-12 col-sm-6 col-md-4 col-lg-3">
-                    <img src="assets/img/backgrounds/7.jpg" class="img-fluid mx-auto d-block" alt="img7">
-                </div>
-                <div class="carousel-item col-12 col-sm-6 col-md-4 col-lg-3">
-                    <img src="assets/img/backgrounds/8.jpg" class="img-fluid mx-auto d-block" alt="img8">
+                    <figcaption name="premAdTitle" class="premAdTitle">Produto</figcaption>
+                      <a href="#" class="carousel-img-link">
+                    <img src="assets/img/backgrounds/8.jpg" class="img-fluid mx-auto d-block" alt="img8" onclick="carouselClick();">
+                        </a>
+                    <figcaption name="premAdPrice" class="premAdPrice">Preço</figcaption>
                 </div>
             </div>
             <a class="carousel-control-prev" href="#carousel-example" role="button" data-slide="prev">
@@ -113,7 +146,7 @@
 <br><br>
 
 
-
+<!--   Search Bar  -->
 <div class="searchNavBar" >
   <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
     <form class="form-inline" action="/action_page.php">
@@ -131,17 +164,15 @@
       <button class="btn btn-info btn-sm" type="submit">Search</button>
       &nbsp
       <button class="btn btn-light btn-sm" type="reset">Reset</button>     
-      </form>
-
-    
+      </form> 
   </nav>
 </div>
 
-<br/>
+<br/><br/>
 
 
-<div class="index-Announces">
 <!-- Free Announces -->
+<div class="index-Announces">
 <div class="card-deck">
 <div class="card" style="width:400px">
   <img class="card-img-top" src="img_avatar1.png" alt="Card image">
@@ -178,12 +209,12 @@
 </div>
 <br/>
 </div>
-</div> <!-- end of free Announces content -->
+</div><br> <!-- end of free Announces content -->
       
-<br>
 
-<div class="index-Announces">
+
 <!-- Free Announces -->
+<div class="index-Announces">
 <div class="card-deck">
 <div class="card" style="width:400px">
   <img class="card-img-top" src="img_avatar1.png" alt="Card image">
@@ -224,45 +255,6 @@
 
 <br>
 
-<div class="index-Announces">
-<!-- Free Announces -->
-<div class="card-deck">
-<div class="card" style="width:400px">
-  <img class="card-img-top" src="img_avatar1.png" alt="Card image">
-  <div class="card-body">
-    <h4 class="card-title">Item1</h4>
-    <p class="card-text">Some example text.</p>
-    <a href="#" class="btn btn-primary">See Announce</a>
-  </div>
-</div>
-<div class="card" style="width:400px">
-  <img class="card-img-top" src="img_avatar1.png" alt="Card image">
-  <div class="card-body">
-    <h4 class="card-title">Item2</h4>
-    <p class="card-text">Some example text.</p>
-    <a href="#" class="btn btn-primary">See Announce</a>
-  </div>
-</div>
-<div class="card" style="width:400px" >
-  <img class="card-img-top" src="img_avatar1.png" alt="Card image">
-  <div class="card-body">
-    <h4 class="card-title">Item3</h4>
-    <p class="card-text">Some example text.</p>
-    <a href="#" class="btn btn-primary">See Announce</a>
-  </div>
-</div>
-<div class="card" style="width:400px">
-  <img class="card-img-top" src="img_avatar1.png" alt="Card image">
-  <div class="card-body">
-    <h4 class="card-title">Item4</h4>
-    <p class="card-text">Some example text.</p>
-    <a href="#" class="btn btn-primary">See Announce</a>
-  </div>
- 
-</div>
-<br/>
-</div>
-</div> <!-- end of free Announces content -->
 
 <br><br><br>
 <?php include('footer.php'); ?>
@@ -302,4 +294,19 @@ $('#carousel-example').on('slide.bs.carousel', function (e) {
     }
 });
 
+window.onload = function()
+{
+    var allLinks = document.getElementsByClassName("btn btn-primary");
+    for(var i=0;i<allLinks.length;i++)
+    {
+        var currentLink = allLinks[i];
+        currentLink.setAttribute("href","/Bidiji/FinalProject/showProduct.php");
+    }
+}
+
+function carouselClick(){
+  location.href = "/Bidiji/FinalProject/showProduct.php";
+}
+
 </script>
+

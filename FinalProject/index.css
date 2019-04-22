@@ -15,7 +15,19 @@
   width: 100%;
   display: flex;
   justify-content: center ;
-  padding-right: 2%
+  padding-right: 2%;
+}
+
+/* 
+Premium Ads Style
+ */
+.premAdTitle{
+    font-size:120%;
+    text-align:left;
+}
+.premAdPrice{
+    font-size:120%;
+    text-align:center;
 }
 
 /* 
