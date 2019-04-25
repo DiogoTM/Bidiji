@@ -11,10 +11,11 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-      <!-- Custom styles for this template -->
-    <link href="postAnnounce.css" rel="stylesheet">
     
+    <!-- Custom styles for this template -->
+    <link href="postAnnounce.css" rel="stylesheet">   
   </head>
+
   <body> 
       <body style="background-color: #7286a5">
  
@@ -96,7 +97,7 @@
                 <div class="input-group-prepend">
                     <span class="input-group-text"> <i class="fa fa-money-bill"></i> </span>
                  </div>
-                <input name="adPrice" id="adPrice" class="form-control" placeholder="Price" type="number">
+                <input name="adPrice" id="adPrice" class="form-control" placeholder="Price" type="number" min="0.00">
             </div> <!-- form-group// -->
             <div class="form-group input-group">
                 <div class="input-group-prepend">
@@ -118,6 +119,17 @@
             </div> <!-- form-group end.// -->
 
 
+            <div class="form-group input-group">  <!-- Insert Images from File -->
+                <div class="input-group-prepend">
+                    <span class="input-group-text"> <i class="fa fa-camera"></i> </span>
+                </div>               
+                <input name="adImage" id="adImage" class="form-control" placeholder="" type="file" >
+                <div class="input-group-append">
+                    <button class="btn btn-secondary" type="button" id="btnSubmitImage" name="btnSubmitImage">Add Image</button>
+                  </div>
+            </div> <br>
+
+
             <fieldset class="form-group">
                 <div class="row">
                   <legend class="col-form-label col-sm-2 pt-0"></legend>
@@ -125,7 +137,7 @@
                     <div class="form-check">
                       <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
                       <label class="form-check-label" for="gridRadios1">
-                        Payed Ad
+                        Paid Ad
                       </label>
                     </div>
                     <div class="form-check">
@@ -136,13 +148,12 @@
                     </div>
                   </div>
                 </div>
-              </fieldset><!-- form-group end.// -->   
+              </fieldset><!-- form-group end.// -->
 
 
-            <br><br>
-            <div id="teste">
-              <button id=btnSubmitAdPhoto name=btnSubmitAdPhoto class="btn btn-secondary">Add Photos</button>&nbsp
-              <button id="btnSubmitAdAnnounce" name="btnSubmitAdAnnounce" class="btn btn-primary">Submit Announce</button>
+            <br>
+            <div id="divSubmitAd">
+              <button id="btnSubmitAdAnnounce" name="btnSubmitAdAnnounce" class="btn btn-primary" >Submit Announce</button>
             </div>
 
         </form>
@@ -152,22 +163,23 @@
         <!--container end.//-->
 
     <br>     
-    <div class="container">         
+    <div class="container"  id="divFormPictures" style="display: none">         
       <div class="card bg-light">
         <article class="card-body mx-auto" >
             <h4 class="card-title mt-3 text-center">Announce Pictures</h4>
             <form name="formPictures" id="formPictures">
-              <img src="http://c1.staticflickr.com/9/8450/8026519634_f33f3724ea_b.jpg">
-              <img src="http://c2.staticflickr.com/8/7218/7209301894_c99d3a33c2_h.jpg">
-              <img src="http://c2.staticflickr.com/8/7231/6947093326_df216540ff_b.jpg">
-              <img src="http://c1.staticflickr.com/9/8450/8026519634_f33f3724ea_b.jpg">
-              <img src="http://c2.staticflickr.com/8/7218/7209301894_c99d3a33c2_h.jpg">
-              <img src="http://c2.staticflickr.com/8/7231/6947093326_df216540ff_b.jpg">
+<!--               <img class="picture" src="http://c1.staticflickr.com/9/8450/8026519634_f33f3724ea_b.jpg">
+              <img class="picture" src="http://c2.staticflickr.com/8/7218/7209301894_c99d3a33c2_h.jpg">
+              <img class="picture" src="http://c2.staticflickr.com/8/7231/6947093326_df216540ff_b.jpg">
+              <img class="picture" src="http://c1.staticflickr.com/9/8450/8026519634_f33f3724ea_b.jpg">
+              <img class="picture" src="http://c2.staticflickr.com/8/7218/7209301894_c99d3a33c2_h.jpg">
+              <img class="picture" src="http://c2.staticflickr.com/8/7231/6947093326_df216540ff_b.jpg"> -->
               </form>
           </article>
         </div> <!-- card.// -->     
       </div>
       <!--container end.//-->
+
 
       <?php include("footer.php")?>
 
@@ -182,11 +194,39 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.1/js/tempusdominus-bootstrap-4.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.1/css/tempusdominus-bootstrap-4.min.css" />
 
-  
+
   </body>
 </html>
 
-<script type="text/javascript">
-// Data Picker Initialization
+<script>
+  function myFunction(){
+    alert("teste");
+  }
+
+  document.addEventListener('DOMContentLoaded', function() {
+    if ($('.picture').length > 0) {
+        $("#divFormPictures").show();
+    } 
+  }, false);
 
 </script>
+
+
+
+
+<style>
+img	{
+	width: 30%;
+	float: left;
+  margin: 1.66%;
+}
+
+#divSubmitAd{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+</style>
+
+

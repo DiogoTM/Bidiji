@@ -1,11 +1,19 @@
+
+
+
+/* porque esse link nao funciona? */
+
 img	{
 	width: 30%;
 	float: left;
-    margin: 1.66%;
+  margin: 1.66%;
 }
 
-#teste{
+
+#divSubmitAd{
   width: 100%;
   display: flex;
-  justify-content: center ;
+  justify-content: center;
+  text-align: center;
+  background-color: red;
 }
