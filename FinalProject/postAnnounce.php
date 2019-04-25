@@ -1,14 +1,12 @@
 <?php
-include_once 'dbConfig.php';
-
-$categoryID  = $_GET['id'];
-echo $categoryID;
-
 ?>
-
 <!doctype html>
 <html lang="en">
-<head>
+  <head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
@@ -26,193 +24,73 @@ echo $categoryID;
   <!-- Brand -->
   <a class="navbar-brand" href="/Bidiji/FinalProject/index.php">Home</a>
 
-<!-- <!-- Bootstrap CSS --> 
-<link rel="stylesheet"
-	href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
-	integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
-	crossorigin="anonymous">
-<link rel="stylesheet"
-	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
-	crossorigin="anonymous">
-<!-- <!-- Custom styles for this template --> 
-<link href="postAnnounce.css" rel="stylesheet">
+  <!-- Toggler/collapsibe Button -->
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+    <span class="navbar-toggler-icon"></span>
+  </button>
 
+  <!-- Navbar links -->
+  <div class="collapse navbar-collapse" id="collapsibleNavbar">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="/Bidiji/FinalProject/login.php">Login</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/Bidiji/FinalProject/postAnnounce.php">Post Ad</a>
+      </li>    
+    </ul>
+  </div>
+  <a class="navbar-brand mx-auto" href="/Bidiji/FinalProject/index.php">Bidiji</a>
+    <div class="navbar-collapse collapse">
+        <ul class="nav navbar-nav ml-auto">
+            <li class="nav-item dropdown dmenu">
+            <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+              Language
+            </a>
+            <div class="dropdown-menu sm-menu">
+              <a class="dropdown-item" href="#">English</a>
+              <a class="dropdown-item" href="#">French</a>
+            </div>
+          </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">User</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+      
+      <br/>  
+      <!-- Main Content -->
+      
+  <div class="container">   
+       
+	<div class="card bg-light">
+        <article class="card-body mx-auto" >
+            <h4 class="card-title mt-3 text-center">Create Announce</h4>
+            <p class="text-center">Please enter the following information to continue:</p>
+          <form>
+            <div class="form-group input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"> <i class="fa fa-shopping-bag"></i> </span>
+                 </div>
+                <input name="adTitle" id="adTitle" class="form-control" placeholder="Title/Name of the article" type="text">
+            </div> <!-- form-group// -->
 
-</head>
-<body>
-
-
-<body style="background-color: #7286a5">
-
-	<!-- NAVBAR -->
-	<nav class="navbar navbar-expand-md bg-dark navbar-dark">
-		<!-- Brand -->
-		<a class="navbar-brand" href="/Bidiji/FinalProject/index.php">Home</a>
-
-		<!-- Toggler/collapsibe Button -->
-		<button class="navbar-toggler" type="button" data-toggle="collapse"
-			data-target="#collapsibleNavbar">
-			<span class="navbar-toggler-icon"></span>
-		</button>
-
-		<!-- Navbar links -->
-		<div class="collapse navbar-collapse" id="collapsibleNavbar">
-			<ul class="navbar-nav">
-				<li class="nav-item"><a class="nav-link"
-					href="/Bidiji/FinalProject/login.php">Login</a></li>
-				<li class="nav-item"><a class="nav-link"
-					href="/Bidiji/FinalProject/postAnnounce.php">Post Ad</a></li>
-			</ul>
-		</div>
-		<a class="navbar-brand mx-auto" href="/Bidiji/FinalProject/index.php">Bidiji</a>
-		<div class="navbar-collapse collapse">
-			<ul class="nav navbar-nav ml-auto">
-				<li class="nav-item dropdown dmenu"><a
-					class="nav-link dropdown-toggle" href="#" id="navbardrop"
-					data-toggle="dropdown"> Language </a>
-					<div class="dropdown-menu sm-menu">
-						<a class="dropdown-item" href="#">English</a> <a
-							class="dropdown-item" href="#">French</a>
-					</div></li>
-				<li class="nav-item"><a class="nav-link" href="#">User</a></li>
-			</ul>
-		</div>
-	</nav>
-
-	<br />
-	<!-- Main Content -->
-
-	<div class="container">
-
-		<div class="card bg-light">
-			<article class="card-body mx-auto">
-				<h4 class="card-title mt-3 text-center">Create Announce</h4>
-				<p class="text-center">Please enter the following information to
-					continue:</p>
-				<form method="post" action="postAnnounce_post.php">
-					<div class="form-group input-group">
-						<div class="input-group-prepend">
-							<span class="input-group-text"> <i class="fa fa-clipboard"></i>
-							</span>
-						</div>
-						<select class="form-control" name="adCategory" id="adCategory" onchange="location = 'postAnnounce.php?id=' + this.options[this.selectedIndex].value" >
-							
-                        <?php
-                        echo "<option value= '0' >Select Category</option>";
-                        try {
-                            $stmt = $connectionId->prepare("SELECT * FROM category");
-                            $stmt->execute(array());
-                            
-                            if ($stmt->rowCount() > 0) {
-                                foreach ($stmt as $value) {
-                                    
-                                    if ($value['categoryId'] === $id) {
-                                        echo "<option selected value ='" . $value['categoryId'] . "'>" . $value['nameENG'] . "</option>";
-                                        
-                                    }
-                                    else{
-                                    echo "<option value ='" . $value['categoryId'] . "'>" . $value['nameENG'] . "</option>";
-                                    }
-                                }
-                            }
-                            echo "not nice job dude";
-                        } catch (PDOException $e) {
-                            echo $e->getMessage();
-                        }
-
-                        ?>                           
-   
+            <div class="form-group input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"> <i class="fa fa-clipboard"></i> </span>
+                 </div>
+               <select class="form-control" name="adCategory" id="adCategory">
+                  <option selected=""> Select Category</option>                  
               </select>
-              <script>
-                    document.getElementById('adCategory').value = "<?php echo $categoryID?>";
-                    </script>
-                                  
-              
-					</div>
-					<!-- form-group// -->
-					<div class="form-group input-group">
-						<div class="input-group-prepend">
-							<span class="input-group-text"> <i class="fa fa-clipboard-list"></i>
-							</span>
-
-						</div>
-						<select class="form-control" name="adsubCategory"
-							id="adsubCategory">
-							<option selected="">Select SubCategory</option>
-							   <?php
-
-                        try {
-                            $stmt = $connectionId->prepare("SELECT * FROM subcategory WHERE categoryId = ".$categoryID);
-                            $stmt->execute(array());
-
-                            if ($stmt->rowCount() > 0) {
-
-                                foreach ($stmt as $value) {
-                                    echo "<option value ='" . $value['subcategoryId'] . "'>" . $value['nameENG'] . "</option>";
-                                }
-                            }
-                            echo "not nice job dude";
-                        } catch (PDOException $e) {
-                            echo $e->getMessage();
-                        }
-                        ?>
-                        
-                        </select>
-													
-
-
-
-					</div>
-					<!-- form-group// -->
-					<div class="form-group input-group">
-						<div class="input-group-prepend">
-							<span class="input-group-text"> <i class="fa fa-shopping-bag"></i>
-							</span>
-						</div>
-						<input name="adTitle" id="adTitle" class="form-control"
-							placeholder="Title/Name of the article" type="text">
-					</div>
-	               <!-- form-group// -->
-					<div class="form-group input-group">
-						<div class="input-group-prepend">
-							<span class="input-group-text"> <i class="fa fa-money-bill"></i>
-							</span>
-						</div>
-						<input name="adPrice" id="adPrice" class="form-control"
-							placeholder="Price" type="number">
-					</div>
-					<!-- form-group// -->
-					<div class="form-group input-group">
-						<div class="input-group-prepend">
-							<span class="input-group-text"> <i class="fa fa-plus"></i>
-							</span>
-						</div>
-						<input name="adQuantity" id="adQuantity" class="form-control"
-							placeholder="Quantity" type="number">
-					</div>
-					<!-- form-group// -->
-					<div class="form-group input-group">
-						<div class="input-group-prepend">
-							<span class="input-group-text"><i class="fa fa-pen"></i> </span>
-						</div>
-						<input name="adDescription" id="adDescription"
-							class="form-control" placeholder="Description" type="text">
-					</div>
-					<!-- form-group end.// -->
-					<div class="form-group input-group">
-						<div class="input-group-prepend">
-							<span class="input-group-text"><i class="fa fa-calendar"></i> </span>
-						</div>
-						<input type="text" class="form-control datetimepicker-input"
-							id="datetimepicker5" name="datetimepicker5"
-							data-toggle="datetimepicker" data-target="#datetimepicker5"
-							placeholder="Select Ad date limit" />
-					</div>
-					<!-- form-group end.// -->
-
-
-
+            </div> <!-- form-group// -->
+            <div class="form-group input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"> <i class="fa fa-clipboard-list"></i> </span>
+                 </div>
+               <select class="form-control" name="adSubcategory" id="adSubcategory">
+                  <option selected=""> Select SubCategory</option>                  
+              </select>
             </div> <!-- form-group// -->
 
             <div class="form-group input-group">
@@ -290,12 +168,12 @@ echo $categoryID;
         <article class="card-body mx-auto" >
             <h4 class="card-title mt-3 text-center">Announce Pictures</h4>
             <form name="formPictures" id="formPictures">
-<!--               <img class="picture" src="http://c1.staticflickr.com/9/8450/8026519634_f33f3724ea_b.jpg">
+              <img class="picture" src="http://c1.staticflickr.com/9/8450/8026519634_f33f3724ea_b.jpg">
               <img class="picture" src="http://c2.staticflickr.com/8/7218/7209301894_c99d3a33c2_h.jpg">
               <img class="picture" src="http://c2.staticflickr.com/8/7231/6947093326_df216540ff_b.jpg">
               <img class="picture" src="http://c1.staticflickr.com/9/8450/8026519634_f33f3724ea_b.jpg">
               <img class="picture" src="http://c2.staticflickr.com/8/7218/7209301894_c99d3a33c2_h.jpg">
-              <img class="picture" src="http://c2.staticflickr.com/8/7231/6947093326_df216540ff_b.jpg"> -->
+              <img class="picture" src="http://c2.staticflickr.com/8/7231/6947093326_df216540ff_b.jpg"> 
               </form>
           </article>
         </div> <!-- card.// -->     
