@@ -10,6 +10,7 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    
     <!-- Custom styles for this template -->
     <link href="index.css" rel="stylesheet"> 
   </head>
@@ -161,7 +162,7 @@
     &nbsp &nbsp
 
       <input class="form-control mr-sm-2" type="text" placeholder="Search">
-      <button class="btn btn-info btn-sm" type="submit">Search</button>
+      <button class="btn btn-info btn-sm" type="submit"">Search</button>
       &nbsp
       <button class="btn btn-light btn-sm" type="reset">Reset</button>     
       </form> 
@@ -260,6 +261,7 @@
 <?php include('footer.php'); ?>
 
 
+
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
@@ -294,8 +296,7 @@ $('#carousel-example').on('slide.bs.carousel', function (e) {
     }
 });
 
-window.onload = function()
-{
+window.onload = function(){
     var allLinks = document.getElementsByClassName("btn btn-primary");
     for(var i=0;i<allLinks.length;i++)
     {
@@ -307,6 +308,10 @@ window.onload = function()
 function carouselClick(){
   location.href = "/Bidiji/FinalProject/showProduct.php";
 }
+
+  function myFunction(){
+    alert("teste");
+  }
 
 </script>
 
