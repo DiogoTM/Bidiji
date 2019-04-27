@@ -1,6 +1,7 @@
 <?php 
 
 class PaidAd extends Ad{
+    
     private $paidAdId;
     private $imageQuantity;
     private $totalCost;

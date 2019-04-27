@@ -1,4 +1,9 @@
 <?php
+include_once 'dbConfig.php';
+
+$categoryID  = $_GET['id'];
+echo $categoryID;
+
 ?>
 <!doctype html>
 <html lang="en">
@@ -68,31 +73,79 @@
         <article class="card-body mx-auto" >
             <h4 class="card-title mt-3 text-center">Create Announce</h4>
             <p class="text-center">Please enter the following information to continue:</p>
-          <form>
-            <div class="form-group input-group">
-                <div class="input-group-prepend">
-                    <span class="input-group-text"> <i class="fa fa-shopping-bag"></i> </span>
-                 </div>
-                <input name="adTitle" id="adTitle" class="form-control" placeholder="Title/Name of the article" type="text">
-            </div> <!-- form-group// -->
+          <form method="post" action="postAnnounce_post.php">
+    
 
             <div class="form-group input-group">
                 <div class="input-group-prepend">
                     <span class="input-group-text"> <i class="fa fa-clipboard"></i> </span>
                  </div>
-               <select class="form-control" name="adCategory" id="adCategory">
-                  <option selected=""> Select Category</option>                  
+              <select class="form-control" name="adCategory" id="adCategory" onchange="location = 'postAnnounce.php?id=' + this.options[this.selectedIndex].value" >
+							
+                        <?php
+                        echo "<option value= '0' >Select Category</option>";
+                        try {
+                            $stmt = $connectionId->prepare("SELECT * FROM category");
+                            $stmt->execute(array());
+                            
+                            if ($stmt->rowCount() > 0) {
+                                foreach ($stmt as $value) {
+                                    
+                                    if ($value['categoryId'] === $id) {
+                                        echo "<option selected value ='" . $value['categoryId'] . "'>" . $value['nameENG'] . "</option>";
+                                        
+                                    }
+                                    else{
+                                    echo "<option value ='" . $value['categoryId'] . "'>" . $value['nameENG'] . "</option>";
+                                    }
+                                }
+                            }
+                            echo "not nice job dude";
+                        } catch (PDOException $e) {
+                            echo $e->getMessage();
+                        }
+
+                        ?>                                
               </select>
+                  <script>
+                    document.getElementById('adCategory').value = "<?php echo $categoryID?>";
+                    </script>
+                                  
             </div> <!-- form-group// -->
             <div class="form-group input-group">
                 <div class="input-group-prepend">
                     <span class="input-group-text"> <i class="fa fa-clipboard-list"></i> </span>
                  </div>
-               <select class="form-control" name="adSubcategory" id="adSubcategory">
-                  <option selected=""> Select SubCategory</option>                  
-              </select>
-            </div> <!-- form-group// -->
+              <select class="form-control" name="adsubCategory"
+							id="adsubCategory">
+							<option selected="">Select SubCategory</option>
+							   <?php
 
+                        try {
+                            $stmt = $connectionId->prepare("SELECT * FROM subcategory WHERE categoryId = ".$categoryID);
+                            $stmt->execute(array());
+
+                            if ($stmt->rowCount() > 0) {
+
+                                foreach ($stmt as $value) {
+                                    echo "<option value ='" . $value['subcategoryId'] . "'>" . $value['nameENG'] . "</option>";
+                                }
+                            }
+                            echo "not nice job dude";
+                        } catch (PDOException $e) {
+                            echo $e->getMessage();
+                        }
+                        ?>
+                        
+                        </select>
+													
+            </div> <!-- form-group// -->
+       	 <div class="form-group input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"> <i class="fa fa-shopping-bag"></i> </span>
+                 </div>
+                <input name="adTitle" id="adTitle" class="form-control" placeholder="Title/Name of the article" type="text">
+            </div> <!-- form-group// -->
             <div class="form-group input-group">
                 <div class="input-group-prepend">
                     <span class="input-group-text"> <i class="fa fa-money-bill"></i> </span>
@@ -130,25 +183,16 @@
             </div> <br>
 
 
-            <fieldset class="form-group">
-                <div class="row">
-                  <legend class="col-form-label col-sm-2 pt-0"></legend>
-                  <div class="col-sm-10">
-                    <div class="form-check">
-                      <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
-                      <label class="form-check-label" for="gridRadios1">
+      
+                    <div >
+                      <input type="radio" name="gridRadios" id="gridRadios" value="paid" checked>                 
                         Paid Ad
-                      </label>
                     </div>
-                    <div class="form-check">
-                      <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">
-                      <label class="form-check-label" for="gridRadios2">                        
-                        Free Ad (10 days expiration)
-                      </label>
+                    <div >
+                      <input  type="radio" name="gridRadios" id="gridRadios" value="free">                                             
+                        Free Ad (10 days expiration)                  
                     </div>
-                  </div>
-                </div>
-              </fieldset><!-- form-group end.// -->
+              
 
 
             <br>
@@ -173,7 +217,7 @@
               <img class="picture" src="http://c2.staticflickr.com/8/7231/6947093326_df216540ff_b.jpg">
               <img class="picture" src="http://c1.staticflickr.com/9/8450/8026519634_f33f3724ea_b.jpg">
               <img class="picture" src="http://c2.staticflickr.com/8/7218/7209301894_c99d3a33c2_h.jpg">
-              <img class="picture" src="http://c2.staticflickr.com/8/7231/6947093326_df216540ff_b.jpg"> 
+              <img class="picture" src="http://c2.staticflickr.com/8/7231/6947093326_df216540ff_b.jpg"> -->
               </form>
           </article>
         </div> <!-- card.// -->     
@@ -228,5 +272,9 @@ img	{
   text-align: center;
 }
 </style>
+
+
+
+
 
 

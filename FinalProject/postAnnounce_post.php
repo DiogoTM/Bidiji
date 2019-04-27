@@ -19,6 +19,9 @@ if (isset($_POST['btnSubmitAdAnnounce'])) {
     $dateEnd = $_POST['datetimepicker5'];
     $maxPic = 1;
     $cost = 5;
+    $isPaid = $_POST['gridRadios'];
+  
+    echo $isPaid;
     
     echo "so far so good";
 
@@ -50,8 +53,7 @@ if (isset($_POST['btnSubmitAdAnnounce'])) {
         return;
     }
     $date = 7;
-    echo $date ;
-    
+    echo $date ;    
     
     
     switch(true)
@@ -74,13 +76,24 @@ if (isset($_POST['btnSubmitAdAnnounce'])) {
             break;
     }  
            
-    $myAnnounce = new PaidAd($_SESSION['userLogged'],$subcategory,$dateEnd, $cost, $maxPic);
-    echo "eh nois";
-    $myAnnounce->register($connectionId, $_SESSION['userLogged']);
+    if ($isPaid == "paid") {
+        $myAnnounce = new PaidAd($_SESSION['userLogged'],$subcategory,$dateEnd, $cost, $maxPic);        
+        $myAnnounce->register($connectionId, $_SESSION['userLogged']);                
+        $myAnnounce->registerPaidAd($connectionId, $myAnnounce);
+        echo"paid ok...";
+    }
+    else if($isPaid == "free") {
+        $myAnnounce = new FreeAd($_SESSION['userLogged'],$subcategory,$dateEnd);        
+        $myAnnounce->register($connectionId, $_SESSION['userLogged']);        
+        $myAnnounce->registerFreeAd($connectionId,$myAnnounce);
+        echo"free ok...";
+    }
+    else{
+        echo "failed";
+    }
+    $myArticle = new Article()
     
-    echo "eh nois2". $myAnnounce->getAdId()." " .$myAnnounce->getImageQuantity() ." " .$myAnnounce->getTotalCost();
-
-    $myAnnounce->registerPaidAd($connectionId, $myAnnounce);
+ 
 
     }
 

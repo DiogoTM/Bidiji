@@ -4,9 +4,9 @@ class FreeAd extends Ad
 {
     private $freeAdId;
     
-    function __construct($userId, $subcategoryId){
+    function __construct($userId, $subcategoryId,$dateEnd){
         
-        parent::__construct($userId, $subcategoryId);
+        parent::__construct($userId, $subcategoryId,$dateEnd);
     }
     
     /**
@@ -25,9 +25,13 @@ class FreeAd extends Ad
         $this->freeAdId = $freeAdId;
     }
     
-    public function register($connectionId, $adId)
-    {
-        
+    public function register($connectionId, $userId){
+        parent::register($connectionId, $userId);
+    }
+    
+    public function registerFreeAd($connectionId,$myAnnounce)
+    {        
+        $adId =  $myAnnounce->getAdId();
         try
         {
             $stmt = $connectionId->prepare("INSERT INTO freead (adId)

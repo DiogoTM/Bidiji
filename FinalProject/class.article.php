@@ -3,19 +3,20 @@
 class Article 
 {
     
+   private $adId;
    private $articleID;
    private $price;
    private $quantity;
    private $description;
    private $name;
    
-   function __construct($price, $quantity, $description, $name){
+   function __construct($adId, $price, $quantity, $description, $name){
        
-       $this->userId = $userId;
-       $this->subcategoryId = $subcategoryId;
-       $this->startDate = date('Y-m-d');
-       $this->endDate = date('Y-m-d') + 30;
-       $this->name = $name;
+       $this->$adId = $adId;
+       $this->$price = $price;
+       $this->$quantity = $quantity;
+       $this->$description = $description;
+       $this->$name = $name;
        
    }   
    
@@ -108,7 +109,7 @@ class Article
             $stmt = $connectionId->prepare("INSERT INTO article (adId,price,quantity, description, name)
               VALUES(:adId, :price, :quantity, :description, :name)");
             
-            $stmt->bindparam(":adId", $adId);
+            $stmt->bindparam(":adId", $this->adId);
             $stmt->bindparam(":price", $this->price);
             $stmt->bindparam(":quantity", $this->quantity);
             $stmt->bindparam(":description", $this->description);

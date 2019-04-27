@@ -130,7 +130,7 @@ include_once 'dbConfig.php';
               </div>
               <div class="product-seller-recommended">
                 
-                <div class="product-description mb-5">
+                <div class="product-description mb-5" name="description">
                   <h2 class="mb-5">Description</h2>
                   <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Odit nemo reiciendis quisquam a quis delectus consectetur ipsa eligendi aliquam earum in vitae voluptate ratione fugiat similique nostrum debitis dolor, ipsam quo officiis quas
                     necessitatibus? Magnam eveniet iure, eligendi est ullam consectetur repellat quis doloremque ad perspiciatis assumenda ducimus distinctio quaerat sit repudiandae illo praesentium modi dolor. Veritatis aperiam, minima natus assumenda

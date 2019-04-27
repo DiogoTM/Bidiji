@@ -1,4 +1,12 @@
 <?php
+
+include_once 'dbConfig.php';
+include_once 'class.ad.php';
+include_once 'class.freeAd.php';
+include_once 'class.paidad.php';
+
+session_start();
+
 ?>
 <!doctype html>
 <html lang="en">
@@ -170,89 +178,41 @@
 </div>
 
 <br/><br/>
+ <?php 
+
+$counter = 0;
+$totalEntries = 0;
 
 
-<!-- Free Announces -->
-<div class="index-Announces">
-<div class="card-deck">
-<div class="card" style="width:400px">
-  <img class="card-img-top" src="img_avatar1.png" alt="Card image">
-  <div class="card-body">
-    <h4 class="card-title">Item1</h4>
-    <p class="card-text">Some example text.</p>
-    <a href="#" class="btn btn-primary">See Announce</a>
-  </div>
-</div>
-<div class="card" style="width:400px">
-  <img class="card-img-top" src="img_avatar1.png" alt="Card image">
-  <div class="card-body">
-    <h4 class="card-title">Item2</h4>
-    <p class="card-text">Some example text.</p>
-    <a href="#" class="btn btn-primary">See Announce</a>
-  </div>
-</div>
-<div class="card" style="width:400px" >
-  <img class="card-img-top" src="img_avatar1.png" alt="Card image">
-  <div class="card-body">
-    <h4 class="card-title">Item3</h4>
-    <p class="card-text">Some example text.</p>
-    <a href="#" class="btn btn-primary">See Announce</a>
-  </div>
-</div>
-<div class="card" style="width:400px">
-  <img class="card-img-top" src="img_avatar1.png" alt="Card image">
-  <div class="card-body">
-    <h4 class="card-title">Item4</h4>
-    <p class="card-text">Some example text.</p>
-    <a href="#" class="btn btn-primary">See Announce</a>
-  </div>
+try {
+    
+    $stmt = $connectionId->prepare("SELECT * FROM article");
+    $stmt->execute(array());
+    $totalEntries = $stmt->rowCount();
+    if ($totalEntries > 0) {
+        echo "<div class='index-Announces-row'>
+                    <div class='card-deck'> " ;
+        foreach ($stmt as $result){
+     
+                $counter++;
+                echo "<div class='card' style='width:400px'>
+                      <img class='card-img-top' src='img_avatar1.png' alt='Card image'>
+                      <div class='card-body'>
+                        <h4 class='card-title'>". $result['name']."</h4>
+                        <p class='card-text'>".$result['description']."</p>
+                        <a href='#' class='btn btn-primary'>See Announce</a></div></div>";
+                if ($counter % 4 == 0) {echo "</div><br/><div class='row'> ";}
+        }
+        
+        echo "<br/>
+                </div>
+                </div>";}
+} catch (PDOException $e) {
+    echo $e->getMessage();
+}
+
+ ?> 
  
-</div>
-<br/>
-</div>
-</div><br> <!-- end of free Announces content -->
-      
-
-
-<!-- Free Announces -->
-<div class="index-Announces">
-<div class="card-deck">
-<div class="card" style="width:400px">
-  <img class="card-img-top" src="img_avatar1.png" alt="Card image">
-  <div class="card-body">
-    <h4 class="card-title">Item1</h4>
-    <p class="card-text">Some example text.</p>
-    <a href="#" class="btn btn-primary">See Announce</a>
-  </div>
-</div>
-<div class="card" style="width:400px">
-  <img class="card-img-top" src="img_avatar1.png" alt="Card image">
-  <div class="card-body">
-    <h4 class="card-title">Item2</h4>
-    <p class="card-text">Some example text.</p>
-    <a href="#" class="btn btn-primary">See Announce</a>
-  </div>
-</div>
-<div class="card" style="width:400px" >
-  <img class="card-img-top" src="img_avatar1.png" alt="Card image">
-  <div class="card-body">
-    <h4 class="card-title">Item3</h4>
-    <p class="card-text">Some example text.</p>
-    <a href="#" class="btn btn-primary">See Announce</a>
-  </div>
-</div>
-<div class="card" style="width:400px">
-  <img class="card-img-top" src="img_avatar1.png" alt="Card image">
-  <div class="card-body">
-    <h4 class="card-title">Item4</h4>
-    <p class="card-text">Some example text.</p>
-    <a href="#" class="btn btn-primary">See Announce</a>
-  </div>
- 
-</div>
-<br/>
-</div>
-</div> <!-- end of free Announces content -->
 
 <br>
 
